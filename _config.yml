@@ -3,10 +3,10 @@
 #
 
 # Name of your site (displayed in the header)
-name: John, Doe
+name: 진예규
 
 # Short bio or description (displayed in the header)
-description: Dolore non veniam ex pariatur est.
+description: PNU에서 2023년 2학기 때 진행한 프로젝트입니다.
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar:
@@ -15,7 +15,7 @@ avatar:
 # Flags below are optional
 #
 
-timezone: Asia/Seoul
+timezone: Asia/Pusan
 
 # Includes an icon in the footer for each username you enter
 footer-links:
@@ -24,7 +24,7 @@ footer-links:
   facebook:
   flickr:
   github:
-  instagram:
+  instagram: 
   linkedin:
   pinterest:
   rss: # just type anything here for a working RSS icon, make sure you set the "url" above!
