@@ -2,46 +2,51 @@
 layout: default
 ---
 
-<!-- This loops through the paginated posts -->
+<div class="home-hero">
+  <p class="home-hero-text">AI와 풀스택 개발을 공부하며 만든 것들을 기록합니다.</p>
+  <a href="/about/" class="hero-btn">About me →</a>
+</div>
+
 <div class="posts">
   {% for post in paginator.posts %}
   <article class="post">
+    <div class="post-meta-top">
+      <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y. %m. %d" }}</time>
+      {% if post.tags.size > 0 %}
+        {% for tag in post.tags %}
+          <span class="post-tag">{{ tag }}</span>
+        {% endfor %}
+      {% endif %}
+    </div>
     <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-    <div class="entry">{{ post.content | strip_html | truncatewords:40}}</div>
-    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">더 읽기</a>
+    <div class="entry">{{ post.content | strip_html | truncatewords: 45 }}</div>
+    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">더 읽기 →</a>
   </article>
   {% endfor %}
 </div>
 
-<!-- Pagination links -->
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
   {% if paginator.previous_page %}
-  <a
-    href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"
-    >&laquo; 이전</a
-  >
+  <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; 이전</a>
   {% else %}
-  <span>&laquo; 이전</span>
-  {% endif %} {% for page in (1..paginator.total_pages) %} {% if page ==
-  paginator.page %}
-  <em>{{ page }}</em>
-  {% elsif page == 1 %}
-  <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}"
-    >{{ page }}</a
-  >
+  <span class="pagination-disabled">&laquo; 이전</span>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+    <em>{{ page }}</em>
+    {% elsif page == 1 %}
+    <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+    {% else %}
+    <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+  <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">다음 &raquo;</a>
   {% else %}
-  <a
-    href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}"
-    >{{ page }}</a
-  >
-  {% endif %} {% endfor %} {% if paginator.next_page %}
-  <a
-    href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"
-    >다음 &raquo;</a
-  >
-  {% else %}
-  <span>다음 &raquo;</span>
+  <span class="pagination-disabled">다음 &raquo;</span>
   {% endif %}
 </div>
 {% endif %}
