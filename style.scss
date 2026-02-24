@@ -396,3 +396,200 @@ padding-left:20px;
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "_highlights";
+
+/*********************/
+/* ABOUT PAGE        */
+/*********************/
+
+.about-intro {
+  background: linear-gradient(135deg, #f8f9ff 0%, #eef2ff 100%);
+  border-left: 4px solid $blue;
+  border-radius: 0 8px 8px 0;
+  padding: 24px 28px;
+  margin-bottom: 10px;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: $darkerGray;
+    font-size: 26px;
+  }
+
+  p {
+    margin: 0;
+    color: $gray;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+}
+
+.edu-item {
+  padding: 14px 20px;
+  background: #fafafa;
+  border-radius: 6px;
+  border: 1px solid $lightGray;
+  line-height: 1.7;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+/*********************/
+/* SKILL BADGES      */
+/*********************/
+
+.skill-section {
+  h4 {
+    color: $darkGray;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 18px 0 8px;
+  }
+}
+
+.skill-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+
+  &.badge-blue {
+    background: #dbeafe;
+    color: #1d4ed8;
+  }
+
+  &.badge-green {
+    background: #dcfce7;
+    color: #15803d;
+  }
+
+  &.badge-purple {
+    background: #f3e8ff;
+    color: #7c3aed;
+  }
+
+  &.badge-gray {
+    background: #f1f5f9;
+    color: #475569;
+  }
+}
+
+/*********************/
+/* PROJECT CARDS     */
+/*********************/
+
+.project-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 22px 24px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  background: #fff;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .project-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .project-title {
+    margin: 0;
+    font-size: 18px;
+    color: $darkerGray;
+    font-weight: 700;
+  }
+
+  .project-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: $blue;
+    text-decoration: none;
+    padding: 4px 10px;
+    border: 1px solid $blue;
+    border-radius: 20px;
+    white-space: nowrap;
+
+    &:hover {
+      background: $blue;
+      color: #fff;
+    }
+  }
+
+  .project-desc {
+    color: $darkGray;
+    margin: 0 0 12px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .project-features {
+    margin: 0 0 14px;
+    padding-left: 20px;
+    color: $gray;
+    font-size: 14px;
+    line-height: 1.7;
+
+    li {
+      margin-bottom: 2px;
+    }
+  }
+
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
+
+/*********************/
+/* CONTACT           */
+/*********************/
+
+.contact-links {
+  a {
+    display: inline-block;
+    padding: 8px 18px;
+    background: $darkerGray;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-bottom: 8px;
+    transition: background 0.2s;
+
+    &:hover {
+      background: $blue;
+      color: #fff;
+    }
+  }
+}
+
+/*********************/
+/* HEADER AVATAR     */
+/*********************/
+
+.site-avatar img {
+  border-radius: 50%;
+  border: 2px solid $lightGray;
+}

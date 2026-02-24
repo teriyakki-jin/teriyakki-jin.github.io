@@ -6,10 +6,10 @@
 name: 진예규
 
 # Short bio or description (displayed in the header)
-description: PNU에서 2023년 2학기 때 진행한 프로젝트입니다.
+description: "부산대 CS · AI & Full-Stack Developer"
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar:
+avatar: https://github.com/teriyakki-jin.png
 
 #
 # Flags below are optional
@@ -23,7 +23,7 @@ footer-links:
   email:
   facebook:
   flickr:
-  github:
+  github: teriyakki-jin
   instagram: 
   linkedin:
   pinterest:
@@ -39,7 +39,7 @@ google_analytics:
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url:
+url: https://teriyakki-jin.github.io
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
