@@ -105,6 +105,25 @@ permalink: /about/
 
 <div class="project-card">
   <div class="project-header">
+    <h3 class="project-title">NodeConnection — 블록체인 증명서 발급 시스템</h3>
+    <a href="https://github.com/node-connection/node-connection-backend" target="_blank" class="project-link">GitHub →</a>
+  </div>
+  <p class="project-desc">Hyperledger Fabric 블록체인을 활용한 부동산 등기사항증명서 발급·위변조 방지 시스템. 전세사기 예방을 목적으로 등기 데이터를 온체인에 기록해 투명성과 무결성을 확보합니다. (졸업 프로젝트)</p>
+  <ul class="project-features">
+    <li>등기 데이터 SHA-256 해시화 후 온체인 저장, QR코드로 블록체인 원본 대조 위변조 검증</li>
+    <li>발급자 정보를 PDC(Private Data Collection)에 격리 저장해 등기소 직원만 열람 가능</li>
+    <li>NextAuth.js의 JWE 토큰(alg: dir, enc: A256GCM)을 Java에서 복호화하는 커스텀 메서드 개발</li>
+  </ul>
+  <div class="project-stack">
+    <span class="badge badge-green">Spring Boot</span>
+    <span class="badge badge-green">Java</span>
+    <span class="badge badge-gray">Hyperledger Fabric</span>
+    <span class="badge badge-gray">Docker</span>
+  </div>
+</div>
+
+<div class="project-card">
+  <div class="project-header">
     <h3 class="project-title">Veritas AI</h3>
     <a href="https://github.com/teriyakki-jin/Veritas-AI" target="_blank" class="project-link">GitHub →</a>
   </div>
@@ -164,6 +183,27 @@ permalink: /about/
     <span class="badge badge-gray">PostgreSQL</span>
     <span class="badge badge-purple">Spring AI</span>
     <span class="badge badge-gray">Docker</span>
+  </div>
+</div>
+
+<div class="project-card">
+  <div class="project-header">
+    <h3 class="project-title">자동차 공정 리스크 예측 플랫폼</h3>
+    <a href="https://github.com/Aivle8th19team/Aivle_8th_19team" target="_blank" class="project-link">GitHub →</a>
+  </div>
+  <p class="project-desc">현장 이미지와 센서 데이터를 기반으로 차체·도장·엔진·프레스·용접 공정의 이상 징후와 납기 리스크를 예측·시각화하는 풀스택 웹서비스. KT AIVLE School 8기 팀 프로젝트.</p>
+  <ul class="project-features">
+    <li>비전 기반(도장·차체·용접) 및 센서 기반(엔진·프레스·앞유리) 다중 검사 모델 통합 대시보드</li>
+    <li>이상/경고 건수, 지연 시간 추정, KPI 히스토리 차트 실시간 제공</li>
+    <li>JWT 인증, 게시판 CRUD, 챗봇 상담 기능 포함</li>
+  </ul>
+  <div class="project-stack">
+    <span class="badge badge-blue">React</span>
+    <span class="badge badge-blue">TypeScript</span>
+    <span class="badge badge-green">Spring Boot</span>
+    <span class="badge badge-green">FastAPI</span>
+    <span class="badge badge-purple">PyTorch</span>
+    <span class="badge badge-purple">YOLO</span>
   </div>
 </div>
 
