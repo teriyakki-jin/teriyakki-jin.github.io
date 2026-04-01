@@ -207,18 +207,6 @@ permalink: /about/
   </div>
 </div>
 
-<div class="project-card">
-  <div class="project-header">
-    <h3 class="project-title">localops-agent</h3>
-    <a href="https://github.com/teriyakki-jin/localops-agent" target="_blank" class="project-link">GitHub →</a>
-  </div>
-  <p class="project-desc">MCP(Model Context Protocol)를 활용한 로컬 AI 에이전트 실험 프로젝트</p>
-  <div class="project-stack">
-    <span class="badge badge-purple">Python</span>
-    <span class="badge badge-gray">MCP</span>
-  </div>
-</div>
-
 ---
 
 ## 📬 Contact
