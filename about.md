@@ -87,7 +87,7 @@ permalink: /about/
     <h3 class="project-title">ConsentLedger</h3>
     <a href="https://github.com/teriyakki-jin/consentledger" target="_blank" class="project-link">GitHub →</a>
   </div>
-  <p class="project-desc">개인정보보호법상 마이데이터 전송요구권의 동의 관리·감사 흐름을 검증하는 Spring Boot 백엔드 참조 구현. SHA-256 해시 체인 감사 로그와 Claude AI 기반 이상 탐지를 핵심 기능으로 합니다.</p>
+  <p class="project-desc">개인정보보호법상 마이데이터 전송요구권의 동의 관리·감사·전송 요청을 처리하는 React + Spring Boot 풀스택 웹 서비스. SHA-256 해시 체인 감사 로그와 Claude AI 기반 이상 탐지를 핵심 기능으로 합니다.</p>
   <ul class="project-features">
     <li>SHA-256 해시 체인 + DB 트리거로 감사 로그 위변조 원천 차단, 비관적 락으로 동시성 직렬화</li>
     <li>JWT(사용자) · API Key(에이전트) 이중 인증, RBAC 3단계 권한 관리</li>
@@ -111,7 +111,7 @@ permalink: /about/
   </div>
   <p class="project-desc">Bloomberg Terminal 스타일의 모의주식거래 풀스택 플랫폼. KIS OpenAPI · Yahoo Finance 실시간 시세를 기반으로 주문 체결, 포트폴리오 분석, AI 리포트 챗봇을 제공합니다.</p>
   <ul class="project-features">
-    <li>시장가/지정가 주문 엔진 (비관적 락 동시성 제어, SSE 체결 알림)</li>
+    <li>WebSocket STOMP 기반 실시간 시세 브로드캐스트, GBM 시뮬레이션으로 장외 시간 시세 유지</li>
     <li>RSI · MACD · 볼린저밴드 기술적 분석, MDD · 섹터 비중 포트폴리오 분석</li>
     <li>증권사 리서치 기반 RAG 챗봇 (NEUTRAL/AGGRESSIVE/CONSERVATIVE 페르소나), 수익률 리더보드</li>
   </ul>
@@ -154,7 +154,7 @@ permalink: /about/
   </div>
   <p class="project-desc">노래 가사를 분석해 감정과 핵심 구절을 자동으로 추출하는 AI 웹 애플리케이션</p>
   <ul class="project-features">
-    <li>44가지 감정 레이블 기반 다중 레이블 분류 (KPoEM 모델, F1-micro 52.2%)</li>
+    <li>44가지 감정 레이블 기반 다중 레이블 분류 (KPoEM 모델 파인튜닝)</li>
     <li>단어별 감정 기여도 분석 및 가사 통계 시각화</li>
     <li>아티스트·곡명 검색, 분석 히스토리 기능</li>
   </ul>
@@ -183,7 +183,6 @@ permalink: /about/
     <span class="badge badge-green">FastAPI</span>
     <span class="badge badge-purple">XGBoost</span>
     <span class="badge badge-gray">Docker</span>
-    <span class="badge badge-gray">GitHub Actions</span>
   </div>
 </div>
 
