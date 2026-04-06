@@ -84,23 +84,28 @@ permalink: /about/
 
 <div class="project-card">
   <div class="project-header">
-    <h3 class="project-title">ConsentLedger</h3>
-    <a href="https://github.com/teriyakki-jin/consentledger" target="_blank" class="project-link">GitHub →</a>
+    <h3 class="project-title">ConsentLedger — 마이데이터 동의·전송 관리 플랫폼</h3>
+    <div class="project-links">
+      <a href="https://dgrf2fg1y3qje.cloudfront.net" target="_blank" class="project-link">Live Demo →</a>
+      <a href="https://github.com/teriyakki-jin/consentledger" target="_blank" class="project-link">GitHub →</a>
+    </div>
   </div>
-  <p class="project-desc">개인정보보호법상 마이데이터 전송요구권의 동의 관리·감사·전송 요청을 처리하는 React + Spring Boot 풀스택 웹 서비스. SHA-256 해시 체인 감사 로그와 Claude AI 기반 이상 탐지를 핵심 기능으로 합니다.</p>
+  <p class="project-desc">「개인정보 보호법」 제35조의2 기반 마이데이터 동의·전송 관리 시스템. SHA-256 해시 체인 감사 로그, Claude AI 이상 탐지, Spring AI MCP 서버를 통합한 풀스택 개인 프로젝트. AWS EC2 · RDS · S3 · CloudFront에 직접 배포하고 GitHub Actions CI/CD 파이프라인을 구축했습니다. (단위 119개 + 통합 26개 = 테스트 145개)</p>
   <ul class="project-features">
-    <li>SHA-256 해시 체인 + DB 트리거로 감사 로그 위변조 원천 차단, 비관적 락으로 동시성 직렬화</li>
-    <li>JWT(사용자) · API Key(에이전트) 이중 인증, RBAC 3단계 권한 관리</li>
-    <li>Spring AI MCP 서버 통합으로 Claude Desktop 연동, Claude Sonnet 기반 보안 이상 탐지 (Prompt Injection 방어 포함)</li>
+    <li>SHA-256 해시 체인 + DB 트리거(UPDATE/DELETE 차단) + 비관적 락으로 감사 로그 3중 불변성 보장, 배치 검증 API 제공</li>
+    <li>JWT(사용자) · API Key SHA-256 해시 저장(에이전트) 이중 인증, RBAC 3단계 권한, 전송 요청 상태 머신 비관적 락 + 멱등성 보장</li>
+    <li>Spring AI MCP 서버(SSE)로 Claude Desktop 직접 연동, Claude Sonnet 기반 4가지 보안 패턴(계정 탈취·데이터 유출·권한 남용·비정상 접근) 자동 탐지</li>
   </ul>
   <div class="project-stack">
     <span class="badge badge-green">Spring Boot</span>
-    <span class="badge badge-green">Java</span>
-    <span class="badge badge-blue">React</span>
+    <span class="badge badge-green">Java 17</span>
+    <span class="badge badge-blue">React 19</span>
     <span class="badge badge-blue">TypeScript</span>
     <span class="badge badge-gray">PostgreSQL</span>
     <span class="badge badge-purple">Spring AI</span>
+    <span class="badge badge-gray">AWS</span>
     <span class="badge badge-gray">Docker</span>
+    <span class="badge badge-gray">GitHub Actions</span>
   </div>
 </div>
 
