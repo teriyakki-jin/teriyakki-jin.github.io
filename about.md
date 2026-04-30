@@ -111,6 +111,28 @@ permalink: /about/
 
 <div class="project-card">
   <div class="project-header">
+    <h3 class="project-title">SecureScope — 경량 SIEM 보안 모니터링 시스템</h3>
+    <a href="https://github.com/teriyakki-jin/SecureScope" target="_blank" class="project-link">GitHub →</a>
+  </div>
+  <p class="project-desc">K-water 인턴십 중 수동 로그 분석의 한계를 경험한 뒤, 보안 이벤트 수집 → 자동 탐지 → 실시간 시각화 파이프라인을 직접 구현한 경량 SIEM 개인 프로젝트. Spring ApplicationEvent로 수집·탐지·감사 레이어를 느슨하게 결합했습니다.</p>
+  <ul class="project-features">
+    <li>전략 패턴(Strategy Pattern) 기반 4가지 탐지 룰 — Redis INCR·EXPIRE 슬라이딩 윈도우(브루트포스), Redis SET(포트 스캔), DB 화이트리스트(비인가 MAC), 시간대 검증(시간 외 접근)</li>
+    <li>SHA-256 해시체인 감사 로그 — 블록체인 원리를 적용해 중간 변조 즉시 탐지, <code>/api/audit/verify</code>로 전체 체인 무결성 일괄 검증</li>
+    <li>SSE 실시간 피드 + React 대시보드(이벤트/알림 피드·탐지 이력 테이블·IP 통계 차트), Python 공격 시뮬레이터(브루트포스·포트스캔·비인가MAC·시간외접근 시나리오)</li>
+  </ul>
+  <div class="project-stack">
+    <span class="badge badge-green">Spring Boot 3.2</span>
+    <span class="badge badge-green">Java</span>
+    <span class="badge badge-blue">React 18</span>
+    <span class="badge badge-gray">PostgreSQL</span>
+    <span class="badge badge-gray">Redis</span>
+    <span class="badge badge-purple">Python</span>
+    <span class="badge badge-gray">Docker</span>
+  </div>
+</div>
+
+<div class="project-card">
+  <div class="project-header">
     <h3 class="project-title">NEXUS — 모의주식거래 플랫폼</h3>
     <a href="https://github.com/teriyakki-jin/stock-frontend" target="_blank" class="project-link">GitHub →</a>
   </div>
