@@ -14,7 +14,7 @@ permalink: /about/
 
 ---
 
-## 🎓 Education
+## Education
 
 <div class="edu-item">
   <strong>부산대학교 (Pusan National University)</strong><br>
@@ -23,7 +23,7 @@ permalink: /about/
 
 ---
 
-## 🛠 Skills
+## Skills
 
 <div class="skill-section">
   <h4>Frontend</h4>
@@ -61,7 +61,7 @@ permalink: /about/
 
 ---
 
-## 🚀 Projects
+## Projects
 
 <div class="project-card">
   <div class="project-header">
@@ -235,7 +235,7 @@ permalink: /about/
 
 ---
 
-## 📬 Contact
+## Contact
 
 <div class="contact-links">
   <a href="https://github.com/teriyakki-jin" target="_blank">GitHub: @teriyakki-jin</a>

@@ -173,6 +173,7 @@ blockquote {
   margin-bottom: 48px;
   box-shadow: 0 1px 0 $cream-border-2, 0 4px 24px rgba(0,0,0,0.18);
   position: relative;
+  overflow: hidden;
 
   // Signature single-color Anthropic orange top rule
   &::before {
@@ -181,15 +182,32 @@ blockquote {
     top: 0; left: 0; right: 0;
     height: 2.5px;
     background: $accent;
+    z-index: 2;
+  }
+
+  // 3D neural network canvas
+  #header-canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.75;
+  }
+
+  // Keep nav/text above canvas
+  .container {
+    position: relative;
+    z-index: 1;
   }
 }
 
 .masthead {
-  padding: 22px 0;
+  padding: 32px 0;
 
   @include mobile {
     text-align: center;
-    padding: 18px 0;
+    padding: 22px 0;
   }
 }
 
@@ -229,9 +247,9 @@ blockquote {
 
 .site-name {
   margin: 0 0 3px;
-  font-weight: 700;
-  font-size: 19px;
-  letter-spacing: 0.2px;
+  font-weight: 800;
+  font-size: 21px;
+  letter-spacing: -0.01em;
 
   a {
     color: #FAFAF8;
@@ -282,18 +300,18 @@ nav {
     }
   }
 
-  .nav-github {
+  .nav-pill {
     color: rgba(#FAFAF8, 0.60);
-    padding: 4px 11px;
-    border: 1px solid rgba(#FAFAF8, 0.16);
+    padding: 4px 12px;
+    border: 1px solid rgba(#FAFAF8, 0.15);
     border-radius: 20px;
     font-size: 12.5px;
     transition: background 0.15s, color 0.15s, border-color 0.15s;
 
     &:hover {
-      background: rgba($accent, 0.15);
-      color: #ECBBAB;
-      border-color: rgba($accent, 0.45);
+      background: rgba($accent, 0.18);
+      color: rgba(#FAFAF8, 0.95);
+      border-color: rgba($accent, 0.5);
     }
   }
 }
@@ -303,62 +321,69 @@ nav {
 /*********************/
 
 .home-hero {
-  background: $cream-subtle;
-  border: 1px solid $cream-border;
-  border-radius: 12px;
-  padding: 26px 30px;
-  margin-bottom: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  position: relative;
-  overflow: hidden;
-
-  // Subtle warm texture hint
-  &::after {
-    content: "";
-    position: absolute;
-    right: -20px; top: -20px;
-    width: 100px; height: 100px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba($accent, 0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
+  padding: 60px 0 52px;
+  margin-bottom: 52px;
+  border-bottom: 1px solid $cream-border;
 
   @include mobile {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 18px 20px;
+    padding: 40px 0 36px;
+    margin-bottom: 36px;
   }
 }
 
-.home-hero-text {
-  margin: 0;
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $accent;
+  margin: 0 0 20px;
+}
+
+.hero-name {
+  font-size: clamp(48px, 9vw, 68px);
+  font-weight: 800;
+  color: $text-900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0 0 18px;
+}
+
+.hero-desc {
+  font-size: 16px;
   color: $text-500;
-  font-size: 15px;
-  line-height: 1.65;
-  flex: 1;
+  line-height: 1.8;
+  margin: 0 0 34px;
+  max-width: 420px;
 }
 
-.hero-btn {
-  display: inline-block;
-  padding: 8px 18px;
-  background: $accent;
-  color: #fff !important;
-  border-radius: 22px;
-  font-size: 13px;
-  font-weight: 600;
-  white-space: nowrap;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba($accent, 0.3);
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-  &:hover {
-    background: $accent-dark;
-    transform: translateX(2px);
-    color: #fff !important;
-    box-shadow: 0 4px 14px rgba($accent, 0.35);
-  }
+.hero-cta {
+  display: inline-block;
+  padding: 10px 22px;
+  background: $text-900;
+  color: #FAFAF8;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.15s;
+
+  &:hover { background: $accent; color: #fff; }
+}
+
+.hero-ghost {
+  font-size: 14px;
+  color: $text-500;
+  font-weight: 500;
+  transition: color 0.15s;
+
+  &:hover { color: $text-900; }
 }
 
 /*********************/
@@ -366,26 +391,19 @@ nav {
 /*********************/
 
 .posts > .post {
-  background: $surface;
-  border: 1px solid $cream-border;
-  border-radius: 12px;
-  padding: 22px 26px;
-  margin-bottom: 16px;
-  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s;
-
-  &:hover {
-    box-shadow: 0 6px 28px rgba($text-900, 0.06);
-    transform: translateY(-2px);
-    border-color: $cream-border-2;
-  }
-
-  @include mobile {
-    padding: 16px 18px;
-  }
-}
-
-.posts > .post:last-child {
+  padding: 26px 0 26px 20px;
   margin-bottom: 0;
+  border-top: 1px solid $cream-border;
+  border-left: 2px solid transparent;
+  background: none;
+  border-radius: 0;
+  transition: border-left-color 0.15s;
+
+  &:hover { border-left-color: $accent; }
+
+  &:first-child { border-top: none; padding-top: 0; }
+
+  @include mobile { padding: 20px 0 20px 14px; }
 }
 
 .post-meta-top {
@@ -448,21 +466,13 @@ nav {
 }
 
 .read-more {
-  display: inline-block;
   font-size: 13px;
   font-weight: 600;
-  color: $accent !important;
-  letter-spacing: 0.02em;
-  padding: 5px 13px;
-  border: 1.5px solid $accent;
-  border-radius: 20px;
-  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  color: $accent;
+  transition: color 0.15s;
+  letter-spacing: 0.01em;
 
-  &:hover {
-    background: $accent;
-    color: #fff !important;
-    box-shadow: 0 2px 10px rgba($accent, 0.3);
-  }
+  &:hover { color: $accent-dark; }
 }
 
 /*********************/
@@ -642,12 +652,18 @@ footer {
   padding: 22px 26px;
   margin-bottom: 16px;
   background: $surface;
-  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s;
+  transition: box-shadow 0.4s ease, border-color 0.2s;
+  transform-style: preserve-3d;
+  will-change: transform;
 
   &:hover {
-    box-shadow: 0 6px 28px rgba($text-900, 0.06);
-    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba($text-900, 0.10);
     border-color: $cream-border-2;
+  }
+
+  // vanilla-tilt glare element
+  .js-tilt-glare {
+    border-radius: 12px;
   }
 
   .project-header {
