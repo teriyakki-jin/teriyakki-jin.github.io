@@ -15,7 +15,7 @@ avatar: https://github.com/teriyakki-jin.png
 # Flags below are optional
 #
 
-timezone: Asia/Pusan
+timezone: Asia/Seoul
 
 # Includes an icon in the footer for each username you enter
 footer-links:
@@ -65,9 +65,9 @@ sass:
   style: :expanded
 
 # Use the following plug-ins
-gems:
-  - jemoji # Emoji please!
-  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+plugins:
+  - jemoji
+  - jekyll-sitemap
   - jekyll-redirect-from
 
 # Exclude these files from your production _site
@@ -76,5 +76,7 @@ exclude:
   - Gemfile.lock
   - LICENSE
   - README.md
+  - GEMINI_REVIEW.md
+  - "Decorate portfolio page.zip"
 
 paginate: 15

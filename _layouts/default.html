@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <link
@@ -43,8 +43,7 @@
   </head>
 
   <body>
-    <div class="wrapper-masthead">
-      <canvas id="header-canvas" aria-hidden="true"></canvas>
+    <div class="wrapper-masthead" id="site-nav">
       <div class="container">
         <header class="masthead clearfix">
           <a href="{{ site.baseurl }}/" class="site-avatar">
@@ -55,7 +54,6 @@
             <h1 class="site-name">
               <a href="{{ site.baseurl }}/">{{ site.name }}</a>
             </h1>
-            <p class="site-description">{{ site.description }}</p>
           </div>
 
           <nav>
@@ -85,20 +83,100 @@
     <script src="https://unpkg.com/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
     <script src="{{ site.baseurl }}/js/neural-bg.js"></script>
     <script src="{{ site.baseurl }}/js/star-field.js"></script>
+    <script src="{{ site.baseurl }}/js/typewriter.js"></script>
+
     <script>
+      // Sticky nav: transparent → blur on scroll
+      (function () {
+        var nav = document.getElementById('site-nav');
+        if (!nav) return;
+        function onScroll() {
+          if (window.scrollY > 40) nav.classList.add('scrolled');
+          else nav.classList.remove('scrolled');
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
+
+    <script>
+      // VanillaTilt on project cards
       (function () {
         if (typeof VanillaTilt === 'undefined') return;
         var cards = document.querySelectorAll('.project-card');
         if (!cards.length) return;
         VanillaTilt.init(cards, {
-          max: 7,
+          max: 6,
           speed: 500,
           glare: true,
-          'max-glare': 0.1,
+          'max-glare': 0.08,
           scale: 1.02,
           perspective: 1000,
           easing: 'cubic-bezier(.03,.98,.52,.99)',
         });
+      })();
+    </script>
+
+    <script>
+      // Scroll reveal (fade-up) + skill bar animation
+      (function () {
+        if (!('IntersectionObserver' in window)) return;
+
+        // Fade-up for cards and posts
+        var targets = document.querySelectorAll('.project-card, .posts > .post, .edu-item, .about-intro, .skill-card');
+        targets.forEach(function (el, i) {
+          el.style.transitionDelay = Math.min(i * 0.07, 0.42) + 's';
+          el.classList.add('fade-up');
+        });
+
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('in-view');
+              obs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.07 });
+
+        targets.forEach(function (el) { obs.observe(el); });
+
+        // Skill bar fill animation
+        var skillCards = document.querySelectorAll('.skill-card');
+        var barObs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.querySelectorAll('.skill-bar-fill').forEach(function (bar) {
+                bar.style.width = bar.getAttribute('data-width');
+              });
+              barObs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.25 });
+
+        skillCards.forEach(function (el) { barObs.observe(el); });
+
+        // Count-up for stats and quick-stats
+        var statEls = document.querySelectorAll('.stat-num, .qs-num');
+        var countObs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            var el    = e.target;
+            var end   = parseInt(el.getAttribute('data-count'), 10);
+            var suf   = el.getAttribute('data-suffix') || '';
+            var dur   = 1400;
+            var step  = 16;
+            var inc   = end / (dur / step);
+            var cur   = 0;
+            var timer = setInterval(function () {
+              cur += inc;
+              if (cur >= end) { cur = end; clearInterval(timer); }
+              el.textContent = Math.floor(cur) + suf;
+            }, step);
+            countObs.unobserve(el);
+          });
+        }, { threshold: 0.5 });
+
+        statEls.forEach(function (el) { countObs.observe(el); });
       })();
     </script>
   </body>

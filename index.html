@@ -2,56 +2,494 @@
 layout: default
 ---
 
+<!-- ─── HERO ─────────────────────────────────────── -->
 <section class="home-hero">
-  <p class="hero-eyebrow">AI · Full-Stack Developer</p>
-  <h1 class="hero-name">진예규</h1>
-  <p class="hero-desc">Java · Spring Boot · React · AI.<br>서비스를 설계하고, 만들고, 기록합니다.</p>
-  <div class="hero-actions">
-    <a href="/about/" class="hero-cta">프로젝트 보기 →</a>
-    <a href="https://github.com/teriyakki-jin" target="_blank" class="hero-ghost">GitHub ↗</a>
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-orb hero-orb-purple" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-sky"    aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-violet" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      현재 채용·협업 가능합니다
+    </div>
+
+    <h1 class="hero-name">
+      안녕하세요,
+      <span class="hero-name-gradient">진예규입니다</span>
+    </h1>
+
+    <div class="hero-role-row">
+      <span class="hero-role-text" id="typewriter-text"></span>
+      <span class="tw-cursor" aria-hidden="true"></span>
+    </div>
+
+    <p class="hero-desc">
+      Java · Spring Boot · React · AI.<br>
+      서비스를 설계하고, 만들고, 기록합니다.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#projects" class="hero-cta">프로젝트 보기</a>
+      <a href="https://github.com/teriyakki-jin" target="_blank" rel="noopener" class="hero-ghost">GitHub ↗</a>
+    </div>
+
+    <div class="hero-socials">
+      <a href="https://github.com/teriyakki-jin" target="_blank" rel="noopener" class="hero-social-btn" aria-label="GitHub">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      </a>
+      <a href="https://velog.io/@jyg3485" target="_blank" rel="noopener" class="hero-social-btn" aria-label="Velog">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 0C1.338 0 0 1.338 0 3v18c0 1.662 1.338 3 3 3h18c1.662 0 3-1.338 3-3V3c0-1.662-1.338-3-3-3H3zm6.883 6.25c.63 0 1.005.3 1.125.9l1.463 8.303c.465-.795.832-1.508 1.095-2.138.278-.63.418-1.185.418-1.665 0-.33-.083-.6-.248-.81-.15-.225-.345-.435-.585-.63a2.174 2.174 0 01-.36-.427 1.19 1.19 0 01-.135-.57c0-.42.158-.772.472-1.058.33-.285.743-.427 1.238-.427.525 0 .945.172 1.26.517.33.33.495.788.495 1.373 0 .675-.173 1.418-.518 2.228-.33.795-.907 1.8-1.732 3.015-.766 1.14-1.365 1.95-1.8 2.43-.42.48-.878.72-1.373.72-.33 0-.607-.12-.832-.36-.21-.255-.39-.66-.54-1.215L8.555 8.197c-.09-.345-.217-.577-.382-.697-.15-.12-.42-.188-.81-.203V6.94c.315-.045.743-.127 1.283-.248.54-.135.99-.277 1.35-.442h.068z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span>scroll</span>
+    <svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1v12M1 8l5 5 5-5"/></svg>
   </div>
 </section>
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <article class="post">
-    <div class="post-meta-top">
-      <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y. %m. %d" }}</time>
-      {% if post.tags.size > 0 %}
-        {% for tag in post.tags %}
-          <span class="post-tag">{{ tag }}</span>
-        {% endfor %}
-      {% endif %}
+<!-- ─── ABOUT ─────────────────────────────────────── -->
+<hr class="section-divider-v">
+
+<section class="port-section" id="about">
+  <p class="section-label">01 / About</p>
+  <h2 class="section-heading">저에 대해</h2>
+  <p class="section-sub">부산대학교 CS 졸업 · AI와 풀스택 개발에 관심이 많은 개발자입니다.</p>
+
+  <div class="about-layout">
+
+    <!-- Left: photo placeholder (사진을 여기에 추가하세요) -->
+    <div class="about-photo-col">
+      <div class="photo-frame">
+        <!-- <img src="your-photo.jpg" alt="진예규"> -->
+      </div>
+      <div class="photo-float-badge">
+        <p class="pfb-eyebrow">최근 활동</p>
+        <p class="pfb-number">8+</p>
+        <p class="pfb-sub">Projects</p>
+      </div>
     </div>
-    <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-    <div class="entry">{{ post.content | strip_html | truncatewords: 40 }}</div>
-    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">더 읽기 →</a>
-  </article>
-  {% endfor %}
-</div>
 
-{% if paginator.total_pages > 1 %}
-<div class="pagination">
-  {% if paginator.previous_page %}
-  <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; 이전</a>
-  {% else %}
-  <span class="pagination-disabled">&laquo; 이전</span>
-  {% endif %}
+    <!-- Right: greeting + bio + info + buttons -->
+    <div class="about-text-col">
+      <h3 class="about-greeting">안녕하세요, 진예규입니다 👋</h3>
 
-  {% for page in (1..paginator.total_pages) %}
-    {% if page == paginator.page %}
-    <em>{{ page }}</em>
-    {% elsif page == 1 %}
-    <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+      <p>부산대학교 전기컴퓨터공학부 정보컴퓨터공학을 졸업했습니다. K-water 인턴십에서 실제 인프라 환경을 경험하며 보안 자동화의 필요성을 직접 느꼈고, 경량 SIEM 시스템을 개인 프로젝트로 완성했습니다.</p>
+      <p>Java / Spring Boot 기반 백엔드를 중심으로, React · TypeScript 프론트엔드와 PyTorch / FastAPI AI 파이프라인까지 풀스택으로 설계하고 배포합니다. 코드 한 줄보다 시스템 전체의 흐름을 바라보는 것을 즐깁니다.</p>
+
+      <div class="about-info-grid">
+        <div class="info-item">
+          <p class="info-label">이름</p>
+          <p class="info-value">진예규</p>
+        </div>
+        <div class="info-item">
+          <p class="info-label">출신 대학</p>
+          <p class="info-value">부산대학교 CS</p>
+        </div>
+        <div class="info-item">
+          <p class="info-label">이메일</p>
+          <p class="info-value">jyeg3485@gmail.com</p>
+        </div>
+        <div class="info-item">
+          <p class="info-label">상태</p>
+          <p class="info-value info-available">채용 가능 ✓</p>
+        </div>
+      </div>
+
+      <div class="about-links">
+        <a href="https://github.com/teriyakki-jin" target="_blank" rel="noopener" class="about-link-btn btn-primary">GitHub ↗</a>
+        <a href="https://velog.io/@jyg3485" target="_blank" rel="noopener" class="about-link-btn btn-ghost">Velog ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Full-width stats row -->
+  <div class="stats-row">
+    <div class="stat-item">
+      <p class="stat-label">개인·팀 프로젝트</p>
+      <p class="stat-num" data-count="8" data-suffix="+">0+</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-label">작성한 테스트 코드</p>
+      <p class="stat-num" data-count="145" data-suffix="+">0+</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-label">기술 도메인</p>
+      <p class="stat-num" data-count="4" data-suffix="">0</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-label">인턴십 경험</p>
+      <p class="stat-num" data-count="1" data-suffix="">0</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SKILLS ────────────────────────────────────── -->
+<hr class="section-divider-sky">
+
+<section class="port-section" id="skills">
+  <p class="section-label">02 / Skills</p>
+  <h2 class="section-heading">기술 스택</h2>
+  <p class="section-sub">다양한 기술을 활용해 백엔드부터 AI까지 일관된 품질의 결과물을 만듭니다.</p>
+
+  <div class="skills-grid">
+    <div class="skill-card">
+      <p class="skill-card-num" style="color:#a78bfa">01</p>
+      <h3 class="skill-card-title">Backend</h3>
+      <p class="skill-card-desc">안정적이고 확장 가능한 서버를 설계합니다</p>
+      <div class="skill-bars">
+        <div class="skill-bar-row">
+          <div class="skill-bar-meta"><span>Spring Boot / Java</span><span>90%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90%" style="background:#a78bfa"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-meta"><span>FastAPI / Python</span><span>75%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75%" style="background:#a78bfa"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-meta"><span>PostgreSQL / Redis</span><span>80%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80%" style="background:#a78bfa"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <p class="skill-card-num" style="color:#38bdf8">02</p>
+      <h3 class="skill-card-title">Frontend</h3>
+      <p class="skill-card-desc">사용자와 직접 맞닿는 인터페이스를 구축합니다</p>
+      <div class="skill-bars">
+        <div class="skill-bar-row">
+          <div class="skill-bar-meta"><span>React / TypeScript</span><span>85%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85%" style="background:#38bdf8"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-meta"><span>Vite / Tailwind CSS</span><span>82%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82%" style="background:#38bdf8"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-meta"><span>WebSocket / SSE</span><span>78%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="78%" style="background:#38bdf8"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <p class="skill-card-num" style="color:#34d399">03</p>
+      <h3 class="skill-card-title">AI / ML</h3>
+      <p class="skill-card-desc">데이터 기반 인텔리전스를 서비스에 통합합니다</p>
+      <div class="skill-bars">
+        <div class="skill-bar-row">
+          <div class="skill-bar-meta"><span>PyTorch / Transformers</span><span>75%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75%" style="background:#34d399"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-meta"><span>XGBoost / scikit-learn</span><span>72%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="72%" style="background:#34d399"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-meta"><span>Spring AI / MCP</span><span>70%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="70%" style="background:#34d399"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <p class="skill-card-num" style="color:#f472b6">04</p>
+      <h3 class="skill-card-title">DevOps</h3>
+      <p class="skill-card-desc">효율적인 배포 파이프라인과 인프라를 운영합니다</p>
+      <div class="skill-bars">
+        <div class="skill-bar-row">
+          <div class="skill-bar-meta"><span>Docker / Nginx</span><span>82%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82%" style="background:#f472b6"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-meta"><span>AWS (EC2 · RDS · S3)</span><span>74%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="74%" style="background:#f472b6"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-meta"><span>GitHub Actions CI/CD</span><span>80%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80%" style="background:#f472b6"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tech-marquee-wrap">
+    <p class="marquee-label">Tech Stack</p>
+    <div class="tech-marquee">
+      <div class="marquee-track">
+        <span class="marquee-item">Spring Boot</span>
+        <span class="marquee-item">Java 17</span>
+        <span class="marquee-item">FastAPI</span>
+        <span class="marquee-item">Python</span>
+        <span class="marquee-item">React 19</span>
+        <span class="marquee-item">TypeScript</span>
+        <span class="marquee-item">Vite</span>
+        <span class="marquee-item">PostgreSQL</span>
+        <span class="marquee-item">Redis</span>
+        <span class="marquee-item">Docker</span>
+        <span class="marquee-item">AWS</span>
+        <span class="marquee-item">GitHub Actions</span>
+        <span class="marquee-item">PyTorch</span>
+        <span class="marquee-item">Transformers</span>
+        <span class="marquee-item">Spring AI</span>
+        <span class="marquee-item">Hyperledger Fabric</span>
+        <span class="marquee-item">Nginx</span>
+        <span class="marquee-item">WebSocket</span>
+        <span class="marquee-item">Spring Boot</span>
+        <span class="marquee-item">Java 17</span>
+        <span class="marquee-item">FastAPI</span>
+        <span class="marquee-item">Python</span>
+        <span class="marquee-item">React 19</span>
+        <span class="marquee-item">TypeScript</span>
+        <span class="marquee-item">Vite</span>
+        <span class="marquee-item">PostgreSQL</span>
+        <span class="marquee-item">Redis</span>
+        <span class="marquee-item">Docker</span>
+        <span class="marquee-item">AWS</span>
+        <span class="marquee-item">GitHub Actions</span>
+        <span class="marquee-item">PyTorch</span>
+        <span class="marquee-item">Transformers</span>
+        <span class="marquee-item">Spring AI</span>
+        <span class="marquee-item">Hyperledger Fabric</span>
+        <span class="marquee-item">Nginx</span>
+        <span class="marquee-item">WebSocket</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROJECTS ──────────────────────────────────── -->
+<hr class="section-divider-v">
+
+<section class="port-section" id="projects">
+  <p class="section-label">03 / Projects</p>
+  <h2 class="section-heading">주요 프로젝트</h2>
+  <p class="section-sub">직접 설계하고 배포한 풀스택 · AI · 보안 프로젝트들입니다.</p>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h3 class="project-title">NodeConnection — 블록체인 증명서 발급 시스템</h3>
+      <a href="https://github.com/node-connection/node-connection-backend" target="_blank" class="project-link">GitHub →</a>
+    </div>
+    <p class="project-desc">Hyperledger Fabric 블록체인을 활용한 부동산 등기사항증명서 발급·위변조 방지 시스템. 전세사기 예방을 목적으로 등기 데이터를 온체인에 기록해 투명성과 무결성을 확보합니다. (졸업 프로젝트)</p>
+    <ul class="project-features">
+      <li>등기 데이터 SHA-256 해시화 후 온체인 저장, QR코드로 블록체인 원본 대조 위변조 검증</li>
+      <li>발급자 정보를 PDC(Private Data Collection)에 격리 저장해 등기소 직원만 열람 가능</li>
+      <li>NextAuth.js의 JWE 토큰(alg: dir, enc: A256GCM)을 Java에서 복호화하는 커스텀 메서드 개발</li>
+    </ul>
+    <div class="project-stack">
+      <span class="badge badge-green">Spring Boot</span>
+      <span class="badge badge-green">Java</span>
+      <span class="badge badge-gray">Hyperledger Fabric</span>
+      <span class="badge badge-gray">Docker</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h3 class="project-title">ConsentLedger — 마이데이터 동의·전송 관리 플랫폼</h3>
+      <div class="project-links">
+        <a href="https://dgrf2fg1y3qje.cloudfront.net" target="_blank" class="project-link">Live Demo →</a>
+        <a href="https://github.com/teriyakki-jin/consentledger" target="_blank" class="project-link">GitHub →</a>
+      </div>
+    </div>
+    <p class="project-desc">「개인정보 보호법」 제35조의2 기반 마이데이터 동의·전송 관리 시스템. SHA-256 해시 체인 감사 로그, Claude AI 이상 탐지, Spring AI MCP 서버를 통합한 풀스택 개인 프로젝트. AWS EC2 · RDS · S3 · CloudFront 직접 배포, GitHub Actions CI/CD. (단위 119 + 통합 26 = 테스트 145개)</p>
+    <ul class="project-features">
+      <li>SHA-256 해시 체인 + DB 트리거(UPDATE/DELETE 차단) + 비관적 락으로 감사 로그 3중 불변성 보장</li>
+      <li>JWT(사용자) · API Key SHA-256 해시(에이전트) 이중 인증, RBAC 3단계 권한, 상태 머신 멱등성 보장</li>
+      <li>Spring AI MCP 서버(SSE)로 Claude Desktop 직접 연동, 4가지 보안 패턴 자동 탐지</li>
+    </ul>
+    <div class="project-stack">
+      <span class="badge badge-green">Spring Boot</span>
+      <span class="badge badge-green">Java 17</span>
+      <span class="badge badge-blue">React 19</span>
+      <span class="badge badge-blue">TypeScript</span>
+      <span class="badge badge-gray">PostgreSQL</span>
+      <span class="badge badge-purple">Spring AI</span>
+      <span class="badge badge-gray">AWS</span>
+      <span class="badge badge-gray">Docker</span>
+      <span class="badge badge-gray">GitHub Actions</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h3 class="project-title">SecureScope — 경량 SIEM 보안 모니터링 시스템</h3>
+      <a href="https://github.com/teriyakki-jin/SecureScope" target="_blank" class="project-link">GitHub →</a>
+    </div>
+    <p class="project-desc">K-water 인턴십 중 수동 로그 분석의 한계를 경험한 뒤 직접 구현한 경량 SIEM. 보안 이벤트 수집 → 자동 탐지 → 실시간 시각화 파이프라인. Spring ApplicationEvent로 수집·탐지·감사 레이어를 느슨하게 결합했습니다.</p>
+    <ul class="project-features">
+      <li>전략 패턴 기반 4가지 탐지 룰 — Redis 슬라이딩 윈도우(브루트포스), 포트 스캔, 비인가 MAC, 시간 외 접근</li>
+      <li>SHA-256 해시체인 감사 로그로 중간 변조 즉시 탐지, <code>/api/audit/verify</code> 전체 체인 무결성 검증</li>
+      <li>SSE 실시간 피드 + React 대시보드, Python 공격 시뮬레이터(4가지 시나리오)</li>
+    </ul>
+    <div class="project-stack">
+      <span class="badge badge-green">Spring Boot 3.2</span>
+      <span class="badge badge-green">Java</span>
+      <span class="badge badge-blue">React 18</span>
+      <span class="badge badge-gray">PostgreSQL</span>
+      <span class="badge badge-gray">Redis</span>
+      <span class="badge badge-purple">Python</span>
+      <span class="badge badge-gray">Docker</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h3 class="project-title">NEXUS — 모의주식거래 플랫폼</h3>
+      <a href="https://github.com/teriyakki-jin/stock-frontend" target="_blank" class="project-link">GitHub →</a>
+    </div>
+    <p class="project-desc">Bloomberg Terminal 스타일의 모의주식거래 풀스택 플랫폼. KIS OpenAPI · Yahoo Finance 실시간 시세를 기반으로 주문 체결, 포트폴리오 분석, AI 리포트 챗봇을 제공합니다.</p>
+    <ul class="project-features">
+      <li>WebSocket STOMP 기반 실시간 시세 브로드캐스트, GBM 시뮬레이션으로 장외 시간 시세 유지</li>
+      <li>RSI · MACD · 볼린저밴드 기술적 분석, MDD · 섹터 비중 포트폴리오 분석</li>
+      <li>증권사 리서치 기반 RAG 챗봇 (NEUTRAL/AGGRESSIVE/CONSERVATIVE 페르소나)</li>
+    </ul>
+    <div class="project-stack">
+      <span class="badge badge-blue">React</span>
+      <span class="badge badge-blue">TypeScript</span>
+      <span class="badge badge-green">Spring Boot</span>
+      <span class="badge badge-green">Java</span>
+      <span class="badge badge-gray">Redis</span>
+      <span class="badge badge-gray">PostgreSQL</span>
+      <span class="badge badge-gray">Docker</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h3 class="project-title">자동차 공정 리스크 예측 플랫폼</h3>
+      <a href="https://github.com/Aivle8th19team/Aivle_8th_19team" target="_blank" class="project-link">GitHub →</a>
+    </div>
+    <p class="project-desc">현장 이미지와 센서 데이터를 기반으로 차체·도장·엔진·프레스·용접 공정의 이상 징후와 납기 리스크를 예측·시각화하는 풀스택 웹서비스. KT AIVLE School 8기 팀 프로젝트.</p>
+    <ul class="project-features">
+      <li>비전 기반(도장·차체·용접) 및 센서 기반(엔진·프레스·앞유리) 다중 검사 모델 통합 대시보드</li>
+      <li>이상/경고 건수, 지연 시간 추정, KPI 히스토리 차트 실시간 제공</li>
+      <li>JWT 인증, 게시판 CRUD, 챗봇 상담 기능 포함</li>
+    </ul>
+    <div class="project-stack">
+      <span class="badge badge-blue">React</span>
+      <span class="badge badge-blue">TypeScript</span>
+      <span class="badge badge-green">Spring Boot</span>
+      <span class="badge badge-green">FastAPI</span>
+      <span class="badge badge-purple">PyTorch</span>
+      <span class="badge badge-purple">YOLO</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h3 class="project-title">LyricInsight</h3>
+      <a href="https://github.com/teriyakki-jin/LyricInsight" target="_blank" class="project-link">GitHub →</a>
+    </div>
+    <p class="project-desc">노래 가사를 분석해 감정과 핵심 구절을 자동으로 추출하는 AI 웹 애플리케이션</p>
+    <ul class="project-features">
+      <li>44가지 감정 레이블 기반 다중 레이블 분류 (KPoEM 모델 파인튜닝)</li>
+      <li>단어별 감정 기여도 분석 및 가사 통계 시각화</li>
+      <li>아티스트·곡명 검색, 분석 히스토리 기능</li>
+    </ul>
+    <div class="project-stack">
+      <span class="badge badge-blue">React</span>
+      <span class="badge badge-green">Spring Boot</span>
+      <span class="badge badge-green">FastAPI</span>
+      <span class="badge badge-purple">PyTorch</span>
+      <span class="badge badge-blue">TypeScript</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h3 class="project-title">Churn Guard AI</h3>
+      <a href="https://github.com/teriyakki-jin/Churn-Guard-AI" target="_blank" class="project-link">GitHub →</a>
+    </div>
+    <p class="project-desc">통신사 고객 이탈 위험을 예측하고 맞춤형 유지 전략을 제안하는 ML 웹 애플리케이션</p>
+    <ul class="project-features">
+      <li>XGBoost · RandomForest · GradientBoosting 앙상블로 이탈 확률 실시간 예측</li>
+      <li>개인화된 유지 전략 자동 생성 및 A/B 모델 비교</li>
+      <li>실시간 KPI 대시보드, CSV/PDF 리포트 내보내기</li>
+    </ul>
+    <div class="project-stack">
+      <span class="badge badge-blue">React</span>
+      <span class="badge badge-green">FastAPI</span>
+      <span class="badge badge-purple">XGBoost</span>
+      <span class="badge badge-gray">Docker</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h3 class="project-title">Veritas AI</h3>
+      <a href="https://github.com/teriyakki-jin/Veritas-AI" target="_blank" class="project-link">GitHub →</a>
+    </div>
+    <p class="project-desc">LIAR · FEVER · FakeNewsNet 데이터셋을 통합한 AI 팩트체킹 시스템. BM25 기반 위키피디아 증거 검색 후 3개 DistilBERT 모델을 병렬 추론하고 가중 앙상블로 진위를 판별합니다.</p>
+    <ul class="project-features">
+      <li>Wikipedia 5,993개 문서 대상 BM25 증거 검색 및 Leave-One-Out 증거 영향도 분석</li>
+      <li>LIAR(6-class) · FEVER(3-class) · FakeNewsNet(2-class) 모델 병렬 추론 후 가중 앙상블</li>
+      <li>SSE 기반 실시간 스트리밍, 배치 처리(최대 50건), URL/본문 기사 분석 지원</li>
+    </ul>
+    <div class="project-stack">
+      <span class="badge badge-green">FastAPI</span>
+      <span class="badge badge-purple">Python</span>
+      <span class="badge badge-purple">DistilBERT</span>
+      <span class="badge badge-purple">Transformers</span>
+      <span class="badge badge-gray">Docker</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BLOG ───────────────────────────────────────── -->
+<hr class="section-divider-sky">
+
+<section class="port-section" id="blog">
+  <p class="section-label">04 / Blog</p>
+  <h2 class="section-heading">최근 글</h2>
+
+  <div class="posts">
+    {% for post in paginator.posts %}
+    <article class="post">
+      <div class="post-meta-top">
+        <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y. %m. %d" }}</time>
+        {% if post.tags.size > 0 %}
+          {% for tag in post.tags %}
+            <span class="post-tag">{{ tag }}</span>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+      <div class="entry">{{ post.content | strip_html | truncatewords: 40 }}</div>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">더 읽기 →</a>
+    </article>
+    {% endfor %}
+  </div>
+
+  {% if paginator.total_pages > 1 %}
+  <div class="pagination">
+    {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; 이전</a>
     {% else %}
-    <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+    <span class="pagination-disabled">&laquo; 이전</span>
     {% endif %}
-  {% endfor %}
 
-  {% if paginator.next_page %}
-  <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">다음 &raquo;</a>
-  {% else %}
-  <span class="pagination-disabled">다음 &raquo;</span>
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+      <em>{{ page }}</em>
+      {% elsif page == 1 %}
+      <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+      {% else %}
+      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+      {% endif %}
+    {% endfor %}
+
+    {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">다음 &raquo;</a>
+    {% else %}
+    <span class="pagination-disabled">다음 &raquo;</span>
+    {% endif %}
+  </div>
   {% endif %}
-</div>
-{% endif %}
+</section>
