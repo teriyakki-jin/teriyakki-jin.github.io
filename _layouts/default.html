@@ -80,7 +80,6 @@
 
     {% include analytics.html %}
 
-    <script src="https://unpkg.com/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
     <script src="{{ site.baseurl }}/js/neural-bg.js"></script>
     <script src="{{ site.baseurl }}/js/star-field.js"></script>
     <script src="{{ site.baseurl }}/js/typewriter.js"></script>
@@ -96,24 +95,6 @@
         }
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
-      })();
-    </script>
-
-    <script>
-      // VanillaTilt on project cards
-      (function () {
-        if (typeof VanillaTilt === 'undefined') return;
-        var cards = document.querySelectorAll('.project-card');
-        if (!cards.length) return;
-        VanillaTilt.init(cards, {
-          max: 6,
-          speed: 500,
-          glare: true,
-          'max-glare': 0.08,
-          scale: 1.02,
-          perspective: 1000,
-          easing: 'cubic-bezier(.03,.98,.52,.99)',
-        });
       })();
     </script>
 
