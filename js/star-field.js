@@ -1,166 +1,156 @@
-// Star field — fixed overlay canvas, bursts on scroll & click
+// Star field: floating twinkle stars + scroll/click burst
 (function () {
   'use strict';
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   var canvas = document.createElement('canvas');
   canvas.setAttribute('aria-hidden', 'true');
-  canvas.style.cssText = [
-    'position:fixed', 'top:0', 'left:0',
-    'width:100%', 'height:100%',
-    'pointer-events:none',
-    'z-index:9000',
-  ].join(';');
+  canvas.style.position       = 'fixed';
+  canvas.style.top            = '0';
+  canvas.style.left           = '0';
+  canvas.style.width          = '100%';
+  canvas.style.height         = '100%';
+  canvas.style.pointerEvents  = 'none';
+  canvas.style.zIndex         = '9000';
   document.body.appendChild(canvas);
 
   var ctx = canvas.getContext('2d');
-  var W, H;
+  var W = 0, H = 0;
+  var stars = [], pool = [];
 
-  // ── Stars ───────────────────────────────────────────
-  var stars = [];
-
-  function mkStar() {
-    return {
-      x:     Math.random() * W,
-      y:     Math.random() * H,
-      r:     Math.random() * 1.1 + 0.25,
-      baseA: Math.random() * 0.13 + 0.04,
-      phase: Math.random() * Math.PI * 2,
-      freq:  0.007 + Math.random() * 0.013,
-      vx:    (Math.random() - 0.5) * 0.045,
-      vy:    (Math.random() - 0.5) * 0.045,
-    };
-  }
-
+  // ── resize ────────────────────────────────────────────
   function resize() {
     W = canvas.width  = window.innerWidth;
     H = canvas.height = window.innerHeight;
-    var n = W < 640 ? 90 : 180;
     stars = [];
-    for (var i = 0; i < n; i++) stars.push(mkStar());
+    var n = W < 640 ? 90 : 180;
+    for (var i = 0; i < n; i++) {
+      stars.push({
+        x:     Math.random() * W,
+        y:     Math.random() * H,
+        r:     Math.random() * 1.3 + 0.4,
+        alpha: Math.random() * 0.22 + 0.08,
+        phase: Math.random() * 6.28,
+        freq:  0.008 + Math.random() * 0.014,
+        vx:    (Math.random() - 0.5) * 0.05,
+        vy:    (Math.random() - 0.5) * 0.05,
+      });
+    }
   }
   resize();
   window.addEventListener('resize', resize);
 
-  // ── Burst particles ──────────────────────────────────
+  // ── burst ─────────────────────────────────────────────
   var COLORS = [
-    [217, 119,  87],   // #D97757 orange
-    [245, 195, 130],   // warm gold
-    [255, 235, 195],   // cream star
-    [184,  80,  40],   // ember
-    [255, 210, 150],   // soft amber
+    [217, 119,  87],
+    [245, 190, 110],
+    [255, 230, 180],
+    [190,  80,  40],
+    [255, 215, 140],
   ];
 
-  var pool = [];
-
   function burst(x, y, n) {
-    for (var i = 0; i < (n || 24); i++) {
-      var angle = Math.random() * Math.PI * 2;
-      var spd   = Math.random() * 5 + 0.6;
-      var c     = COLORS[Math.floor(Math.random() * COLORS.length)];
+    n = n || 26;
+    for (var i = 0; i < n; i++) {
+      var ang = Math.random() * 6.2832;
+      var spd = 1.5 + Math.random() * 5.5;
       pool.push({
         x: x, y: y,
-        vx: Math.cos(angle) * spd,
-        vy: Math.sin(angle) * spd - 1.2,
-        r:    Math.random() * 2.4 + 0.5,
-        life: 1.0,
-        decay: 0.013 + Math.random() * 0.011,
-        color: c,
-        grav:  0.07 + Math.random() * 0.06,
+        vx: Math.cos(ang) * spd,
+        vy: Math.sin(ang) * spd - 1.5,
+        r:    1.2 + Math.random() * 3,
+        life: 1,
+        decay: 0.011 + Math.random() * 0.013,
+        color: COLORS[0 | Math.random() * COLORS.length],
+        grav:  0.09 + Math.random() * 0.07,
       });
     }
   }
 
-  // ── Scroll tracking ──────────────────────────────────
-  var scrolling  = false;
-  var stopTimer  = null;
-  var burstTimer = null;
+  // ── scroll bursts ──────────────────────────────────────
+  var firing    = false;
+  var stopId    = null;
+  var intervalId = null;
 
   window.addEventListener('scroll', function () {
-    if (!scrolling) {
-      scrolling = true;
-      burstTimer = setInterval(function () {
-        if (!scrolling) return clearInterval(burstTimer);
+    if (!firing) {
+      firing = true;
+      intervalId = setInterval(function () {
         burst(
-          W * 0.08 + Math.random() * W * 0.84,
-          H * 0.12 + Math.random() * H * 0.76,
-          20 + Math.floor(Math.random() * 12)
+          W * 0.1 + Math.random() * W * 0.8,
+          H * 0.1 + Math.random() * H * 0.8,
+          22 + (0 | Math.random() * 14)
         );
-      }, 110);
+      }, 100);
     }
-    clearTimeout(stopTimer);
-    stopTimer = setTimeout(function () {
-      scrolling = false;
-      clearInterval(burstTimer);
-    }, 140);
+    clearTimeout(stopId);
+    stopId = setTimeout(function () {
+      firing = false;
+      clearInterval(intervalId);
+    }, 150);
   });
 
-  // ── Click burst ──────────────────────────────────────
+  // ── click burst ────────────────────────────────────────
   document.addEventListener('click', function (e) {
-    // Skip if clicking interactive elements
-    var tag = e.target.tagName;
-    if (tag === 'A' || tag === 'BUTTON') {
-      burst(e.clientX, e.clientY, 14);
-    } else {
-      burst(e.clientX, e.clientY, 26);
-    }
+    burst(e.clientX, e.clientY, 30);
   });
 
-  // ── Render loop ──────────────────────────────────────
-  function frame() {
-    requestAnimationFrame(frame);
+  // ── paint ─────────────────────────────────────────────
+  function paint() {
+    requestAnimationFrame(paint);
     ctx.clearRect(0, 0, W, H);
 
-    // Background twinkle stars
+    // Twinkle stars
     for (var i = 0; i < stars.length; i++) {
       var s = stars[i];
       s.x += s.vx;
       s.y += s.vy;
       s.phase += s.freq;
-
       if (s.x < -2) s.x = W + 2;
       else if (s.x > W + 2) s.x = -2;
       if (s.y < -2) s.y = H + 2;
       else if (s.y > H + 2) s.y = -2;
 
-      var a = s.baseA * (0.5 + 0.5 * Math.sin(s.phase));
+      var a = s.alpha * (0.45 + 0.55 * Math.sin(s.phase));
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, 6.2832);
-      ctx.fillStyle = 'rgba(155,108,68,' + a.toFixed(3) + ')';
+      ctx.fillStyle = 'rgba(160,110,65,' + a.toFixed(3) + ')';
       ctx.fill();
     }
 
     // Burst particles
-    for (var i = pool.length - 1; i >= 0; i--) {
-      var p = pool[i];
+    for (var j = pool.length - 1; j >= 0; j--) {
+      var p = pool[j];
       p.x  += p.vx;
       p.y  += p.vy;
       p.vy += p.grav;
-      p.vx *= 0.974;
+      p.vx *= 0.972;
       p.life -= p.decay;
+      if (p.life <= 0) { pool.splice(j, 1); continue; }
 
-      if (p.life <= 0) { pool.splice(i, 1); continue; }
+      var c  = p.color;
+      var al = p.life;
+      var gr = p.r * (2 + al * 2);
 
-      var c = p.color;
-      var a = p.life;
-
-      // Soft glow halo
-      var gr  = p.r * (1.6 + a * 1.8);
-      var grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, gr);
-      grd.addColorStop(0, 'rgba(' + c + ',' + (a * 0.5).toFixed(3) + ')');
-      grd.addColorStop(1, 'rgba(' + c + ',0)');
+      var grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, Math.max(gr, 0.1));
+      grd.addColorStop(0, 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + (al * 0.55).toFixed(3) + ')');
+      grd.addColorStop(1, 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',0)');
       ctx.beginPath();
       ctx.arc(p.x, p.y, gr, 0, 6.2832);
       ctx.fillStyle = grd;
       ctx.fill();
 
-      // Core dot
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r * Math.max(a, 0.1), 0, 6.2832);
-      ctx.fillStyle = 'rgba(' + c + ',' + a.toFixed(3) + ')';
+      ctx.arc(p.x, p.y, p.r * Math.max(al, 0.1), 0, 6.2832);
+      ctx.fillStyle = 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + al.toFixed(3) + ')';
       ctx.fill();
     }
   }
 
-  frame();
+  paint();
+
+  // Small burst on load to confirm it's working
+  setTimeout(function () {
+    burst(W * 0.5, H * 0.35, 18);
+  }, 600);
+
 }());
