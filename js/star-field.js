@@ -66,29 +66,6 @@
     }
   }
 
-  // ── scroll bursts ──────────────────────────────────────
-  var firing    = false;
-  var stopId    = null;
-  var intervalId = null;
-
-  window.addEventListener('scroll', function () {
-    if (!firing) {
-      firing = true;
-      intervalId = setInterval(function () {
-        burst(
-          W * 0.1 + Math.random() * W * 0.8,
-          H * 0.1 + Math.random() * H * 0.8,
-          22 + (0 | Math.random() * 14)
-        );
-      }, 100);
-    }
-    clearTimeout(stopId);
-    stopId = setTimeout(function () {
-      firing = false;
-      clearInterval(intervalId);
-    }, 150);
-  });
-
   // ── click burst ────────────────────────────────────────
   document.addEventListener('click', function (e) {
     burst(e.clientX, e.clientY, 30);
