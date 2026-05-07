@@ -57,9 +57,11 @@
           </div>
 
           <nav>
-            <a href="{{ site.baseurl }}/">Blog</a>
-            <a href="{{ site.baseurl }}/about/">About</a>
-            <a href="{{ site.baseurl }}/archive/">Archive</a>
+            <a href="/#about"      data-spy="about">About</a>
+            <a href="/#skills"     data-spy="skills">Skills</a>
+            <a href="/#projects"   data-spy="projects">Projects</a>
+            <a href="/#experience" data-spy="experience">Experience</a>
+            <a href="/#contact"    data-spy="contact">Contact</a>
             <a href="https://velog.io/@jyg3485" target="_blank" class="nav-pill">Velog</a>
             <a href="https://github.com/teriyakki-jin" target="_blank" class="nav-pill">GitHub</a>
           </nav>
@@ -104,7 +106,7 @@
         if (!('IntersectionObserver' in window)) return;
 
         // Fade-up for cards and posts
-        var targets = document.querySelectorAll('.project-card, .posts > .post, .edu-item, .about-intro, .skill-card');
+        var targets = document.querySelectorAll('.project-card, .posts > .post, .edu-item, .about-intro, .skill-card, .exp-card');
         targets.forEach(function (el, i) {
           el.style.transitionDelay = Math.min(i * 0.07, 0.42) + 's';
           el.classList.add('fade-up');
@@ -158,6 +160,46 @@
         }, { threshold: 0.5 });
 
         statEls.forEach(function (el) { countObs.observe(el); });
+      })();
+    </script>
+
+    <script>
+      // Scroll-spy nav
+      (function () {
+        if (!document.getElementById('hero-canvas')) return; // home page only
+        var sections = Array.from(document.querySelectorAll('section[id]'));
+        var links    = document.querySelectorAll('nav a[data-spy]');
+        if (!sections.length || !links.length) return;
+
+        function update() {
+          var trigger = window.scrollY + window.innerHeight * 0.32;
+          var current = '';
+          sections.forEach(function (sec) {
+            if (sec.offsetTop <= trigger) current = sec.id;
+          });
+          links.forEach(function (a) {
+            a.classList.toggle('nav-active', a.dataset.spy === current);
+          });
+        }
+
+        window.addEventListener('scroll', update, { passive: true });
+        update();
+      })();
+
+      // Copy email button
+      (function () {
+        var btn = document.getElementById('copy-email-btn');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          navigator.clipboard.writeText('jyeg3485@gmail.com').then(function () {
+            btn.classList.add('copied');
+            document.getElementById('copy-label').textContent = '복사됨 ✓';
+            setTimeout(function () {
+              btn.classList.remove('copied');
+              document.getElementById('copy-label').textContent = '복사';
+            }, 2000);
+          });
+        });
       })();
     </script>
   </body>

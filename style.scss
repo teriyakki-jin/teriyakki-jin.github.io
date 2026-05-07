@@ -217,6 +217,11 @@ nav {
     &:hover { color: $t100; border-bottom-color: $av; }
 
     @include mobile { margin: 0 8px; border-bottom: none; }
+
+    &.nav-active {
+      color: $t100;
+      border-bottom-color: $av;
+    }
   }
 
   .nav-pill {
@@ -734,6 +739,122 @@ nav {
 }
 
 /*------------------------------------
+  EXPERIENCE CARD
+------------------------------------*/
+
+.exp-card {
+  background: $card;
+  border: 1px solid $br;
+  border-radius: 20px;
+  padding: 28px 28px 24px;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.35s;
+
+  &:hover {
+    background: $card-ho;
+    border-color: rgba($ask, 0.28);
+    box-shadow: 0 20px 60px rgba($ask, 0.06);
+  }
+}
+
+.exp-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.exp-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.exp-company-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.exp-company {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: $t100;
+}
+
+.exp-type-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: $ask;
+  background: rgba($ask, 0.1);
+  border: 1px solid rgba($ask, 0.22);
+  padding: 2px 10px;
+  border-radius: 99px;
+}
+
+.exp-role {
+  font-size: 13px;
+  color: $t500;
+  margin: 0;
+  font-weight: 500;
+}
+
+.exp-period {
+  font-size: 12.5px;
+  font-family: $font-mono;
+  color: $t600;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin: 0;
+  padding-top: 3px;
+}
+
+.exp-body {
+  border-top: 1px solid $br;
+  padding-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.exp-block-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $t600;
+  margin: 0 0 12px;
+}
+
+.exp-list {
+  margin: 0;
+  padding-left: 18px;
+  color: $t500;
+  font-size: 13.5px;
+  line-height: 1.85;
+  list-style-type: disc;
+
+  li {
+    margin-bottom: 6px;
+    &:last-child { margin-bottom: 0; }
+  }
+
+  strong { color: $t400; font-weight: 600; }
+}
+
+.exp-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 2px;
+}
+
+/*------------------------------------
   BLOG POST LIST
 ------------------------------------*/
 
@@ -1119,7 +1240,138 @@ nav {
 }
 
 /*------------------------------------
-  CONTACT
+  CONTACT SECTION
+------------------------------------*/
+
+.contact-card {
+  background: $card;
+  border: 1px solid $br;
+  border-radius: 24px;
+  padding: 56px 40px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba($av, 0.07) 0%, transparent 68%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  > * { position: relative; z-index: 1; }
+
+  @include mobile { padding: 40px 24px 36px; }
+}
+
+.contact-availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  padding: 7px 16px;
+  border-radius: 99px;
+  background: rgba($aem, 0.08);
+  border: 1px solid rgba($aem, 0.2);
+  font-size: 12px;
+  font-weight: 500;
+  color: $aem;
+
+  .badge-dot {
+    width: 7px; height: 7px;
+    background: $aem;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: pulse-g 2s ease-in-out infinite;
+  }
+}
+
+.contact-email-link {
+  display: block;
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: $t100 !important;
+  margin-bottom: 36px;
+  transition: color 0.2s;
+
+  &:hover { color: $av !important; }
+}
+
+.contact-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.contact-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 22px;
+  background: rgba(255,255,255,0.06);
+  color: $t400;
+  border: 1px solid $br2;
+  border-radius: 99px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  font-family: $font-sans;
+
+  &:hover {
+    background: rgba(255,255,255,0.1);
+    color: $t100;
+  }
+
+  &.copied {
+    background: rgba($aem, 0.12);
+    border-color: rgba($aem, 0.3);
+    color: $aem;
+  }
+}
+
+.contact-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.contact-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 20px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid $br;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 500;
+  color: $t400 !important;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+
+  svg { display: block; flex-shrink: 0; }
+
+  &:hover {
+    background: rgba($av, 0.1);
+    border-color: rgba($av, 0.3);
+    color: $t100 !important;
+  }
+}
+
+/*------------------------------------
+  CONTACT (legacy — about page)
 ------------------------------------*/
 
 .contact-links {
