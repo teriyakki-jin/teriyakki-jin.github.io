@@ -3,6 +3,7 @@
   'use strict';
 
   var canvas = document.createElement('canvas');
+  canvas.id = 'star-field-canvas';
   canvas.setAttribute('aria-hidden', 'true');
   canvas.style.position      = 'fixed';
   canvas.style.top           = '0';

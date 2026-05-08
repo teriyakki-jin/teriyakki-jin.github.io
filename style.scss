@@ -1493,3 +1493,417 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+/*------------------------------------
+  THEME TOGGLE BUTTON
+------------------------------------*/
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid $br;
+  background: none;
+  color: $t500;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 16px;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  flex-shrink: 0;
+  vertical-align: middle;
+
+  svg { display: block; pointer-events: none; }
+  .icon-moon { display: none; }
+
+  &:hover {
+    border-color: rgba($av, 0.5);
+    color: $av;
+    background: rgba($av, 0.1);
+  }
+
+  @include mobile { margin: 0 6px; }
+}
+
+/*------------------------------------
+  LIGHT MODE
+------------------------------------*/
+
+html[data-theme="light"] {
+
+  .icon-sun  { display: none; }
+  .icon-moon { display: block; }
+
+  .theme-toggle {
+    border-color: rgba(0,0,0,0.13);
+    color: rgba(0,0,0,0.50);
+    &:hover {
+      border-color: rgba(#7c3aed, 0.4);
+      color: #7c3aed;
+      background: rgba(#7c3aed, 0.08);
+    }
+  }
+
+  // ── 기본 ────────────────────────────
+  body {
+    background: #f8f9fb;
+    color: rgba(0,0,0,0.58);
+  }
+
+  h1, h2, h3, h4, h5, h6 { color: rgba(0,0,0,0.88); }
+  h4 { color: rgba(0,0,0,0.30); }
+
+  a { color: #7c3aed; &:hover, &:active { color: #6d28d9; } }
+
+  code {
+    background: rgba(0,0,0,0.06);
+    color: #7c3aed;
+    border-color: rgba(0,0,0,0.08);
+  }
+
+  pre {
+    background: #f3f4f6;
+    color: rgba(0,0,0,0.80);
+    border-color: rgba(0,0,0,0.08);
+    code { background: none; color: inherit; border: none; }
+  }
+
+  blockquote { color: rgba(0,0,0,0.55); }
+  .date { color: rgba(0,0,0,0.40); }
+
+  ::-moz-selection { color: #1a1a2e; background: rgba(#7c3aed, 0.22); }
+  ::selection      { color: #1a1a2e; background: rgba(#7c3aed, 0.22); }
+
+  // ── 네비게이션 ──────────────────────
+  .wrapper-masthead.scrolled {
+    background: rgba(248,249,251,0.92);
+    border-bottom-color: rgba(0,0,0,0.08);
+  }
+
+  .site-name a {
+    color: rgba(0,0,0,0.88);
+    &:hover { color: #7c3aed; }
+  }
+
+  nav a {
+    color: rgba(0,0,0,0.55);
+    &:hover { color: rgba(0,0,0,0.88); border-bottom-color: #7c3aed; }
+    &.nav-active { color: rgba(0,0,0,0.88); border-bottom-color: #7c3aed; }
+  }
+
+  nav .nav-pill {
+    color: rgba(0,0,0,0.52);
+    border-color: rgba(0,0,0,0.13);
+    &:hover {
+      background: rgba(#7c3aed, 0.08);
+      color: rgba(0,0,0,0.88);
+      border-color: rgba(#7c3aed, 0.35);
+    }
+  }
+
+  // ── 히어로 ──────────────────────────
+  .home-hero { background: #f8f9fb; }
+
+  #hero-canvas { opacity: 0.12; }
+  #star-field-canvas { opacity: 0; pointer-events: none; }
+  .hero-orb { opacity: 0.10; }
+
+  .hero-badge {
+    background: rgba(#7c3aed, 0.07);
+    border-color: rgba(#7c3aed, 0.18);
+    color: rgba(0,0,0,0.55);
+  }
+
+  .hero-name { color: rgba(0,0,0,0.88); }
+  .hero-role-text { color: rgba(0,0,0,0.55); }
+  .hero-desc { color: rgba(0,0,0,0.42); }
+
+  .hero-cta {
+    background: #1e1b4b;
+    color: white !important;
+    &:hover { box-shadow: 0 0 28px rgba(30,27,75,0.22); color: white !important; }
+  }
+
+  .hero-ghost {
+    background: rgba(0,0,0,0.05);
+    color: rgba(0,0,0,0.55) !important;
+    border-color: rgba(0,0,0,0.13);
+    &:hover { background: rgba(0,0,0,0.08); color: rgba(0,0,0,0.88) !important; }
+  }
+
+  .hero-social-btn {
+    border-color: rgba(0,0,0,0.10);
+    color: rgba(0,0,0,0.42) !important;
+    &:hover {
+      border-color: rgba(#7c3aed, 0.45);
+      color: #7c3aed !important;
+      background: rgba(#7c3aed, 0.08);
+    }
+  }
+
+  .hero-scroll-hint { color: rgba(0,0,0,0.28); }
+
+  // ── 섹션 공통 ───────────────────────
+  .section-heading { color: rgba(0,0,0,0.88); }
+  .section-sub     { color: rgba(0,0,0,0.45); }
+
+  // ── About ───────────────────────────
+  .photo-frame {
+    border-color: rgba(#7c3aed, 0.18);
+    background: rgba(0,0,0,0.02);
+    box-shadow: none;
+  }
+
+  .photo-float-badge {
+    background: rgba(248,249,251,0.96);
+    border-color: rgba(#7c3aed, 0.20);
+    .pfb-eyebrow { color: rgba(0,0,0,0.30); }
+    .pfb-number  { color: rgba(0,0,0,0.88); }
+    .pfb-sub     { color: rgba(0,0,0,0.42); }
+  }
+
+  .about-text-col p { color: rgba(0,0,0,0.50); }
+  .about-greeting   { color: rgba(0,0,0,0.88); }
+
+  .about-info-grid {
+    border-top-color: rgba(0,0,0,0.09);
+    .info-label { color: rgba(0,0,0,0.30); }
+    .info-value { color: rgba(0,0,0,0.88); }
+  }
+
+  .about-link-btn {
+    &.btn-primary {
+      background: #1e1b4b;
+      color: white !important;
+      border-color: #1e1b4b;
+      &:hover { box-shadow: 0 0 24px rgba(30,27,75,0.20); color: white !important; }
+    }
+    &.btn-ghost {
+      background: rgba(0,0,0,0.04);
+      color: rgba(0,0,0,0.58) !important;
+      border-color: rgba(0,0,0,0.13);
+      &:hover {
+        background: rgba(#7c3aed, 0.08);
+        color: rgba(0,0,0,0.88) !important;
+        border-color: rgba(#7c3aed, 0.35);
+      }
+    }
+  }
+
+  .stats-row {
+    border-color: rgba(0,0,0,0.09);
+    .stat-item {
+      border-right-color: rgba(0,0,0,0.09);
+      &:hover { background: rgba(0,0,0,0.03); }
+      @include mobile { &:nth-child(3) { border-top-color: rgba(0,0,0,0.09); } }
+    }
+    .stat-label { color: rgba(0,0,0,0.45); }
+    .stat-num   { color: rgba(0,0,0,0.88); }
+  }
+
+  // ── 기술 스택 ───────────────────────
+  .skill-card {
+    background: rgba(0,0,0,0.025);
+    border-color: rgba(0,0,0,0.09);
+    &:hover { background: rgba(0,0,0,0.05); }
+    .skill-card-title { color: rgba(0,0,0,0.88); }
+    .skill-card-desc  { color: rgba(0,0,0,0.45); }
+    .skill-bar-meta {
+      color: rgba(0,0,0,0.58);
+      span:last-child { color: rgba(0,0,0,0.30); }
+    }
+    .skill-bar-track { background: rgba(0,0,0,0.08); }
+  }
+
+  .marquee-label { color: rgba(0,0,0,0.30); }
+  .marquee-item {
+    border-color: rgba(0,0,0,0.09);
+    background: rgba(0,0,0,0.025);
+    color: rgba(0,0,0,0.55);
+  }
+
+  // ── 프로젝트 ────────────────────────
+  .project-card {
+    background: rgba(0,0,0,0.025);
+    border-color: rgba(0,0,0,0.09);
+    &:hover {
+      background: rgba(0,0,0,0.05);
+      border-color: rgba(#7c3aed, 0.25);
+      box-shadow: 0 20px 60px rgba(#7c3aed, 0.06);
+    }
+    .project-title    { color: rgba(0,0,0,0.88); }
+    .project-desc     { color: rgba(0,0,0,0.50); }
+    .project-features { color: rgba(0,0,0,0.50); }
+    .project-link {
+      color: #7c3aed;
+      border-color: rgba(#7c3aed, 0.28);
+      &:hover { background: #7c3aed; color: white; border-color: #7c3aed; }
+    }
+  }
+
+  .badge {
+    &.badge-gray {
+      background: rgba(0,0,0,0.05);
+      color: rgba(0,0,0,0.55);
+      border-color: rgba(0,0,0,0.10);
+    }
+  }
+
+  // ── 경력 ────────────────────────────
+  .exp-card {
+    background: rgba(0,0,0,0.025);
+    border-color: rgba(0,0,0,0.09);
+    &:hover {
+      background: rgba(0,0,0,0.05);
+      border-color: rgba(#0284c7, 0.25);
+      box-shadow: 0 20px 60px rgba(#0284c7, 0.05);
+    }
+  }
+
+  .exp-company     { color: rgba(0,0,0,0.88); }
+  .exp-role        { color: rgba(0,0,0,0.45); }
+  .exp-period      { color: rgba(0,0,0,0.30); }
+  .exp-body        { border-top-color: rgba(0,0,0,0.09); }
+  .exp-block-title { color: rgba(0,0,0,0.30); }
+  .exp-list {
+    color: rgba(0,0,0,0.50);
+    strong { color: rgba(0,0,0,0.62); }
+  }
+  .exp-type-badge {
+    color: #0284c7;
+    background: rgba(#0284c7, 0.08);
+    border-color: rgba(#0284c7, 0.20);
+  }
+
+  // ── 블로그 ──────────────────────────
+  .posts > .post {
+    border-top-color: rgba(0,0,0,0.09);
+    &:hover { border-left-color: #7c3aed; }
+  }
+
+  .post-date { color: rgba(0,0,0,0.30); }
+
+  .post-tag {
+    color: #7c3aed;
+    background: rgba(#7c3aed, 0.08);
+  }
+
+  .post h1 a {
+    color: rgba(0,0,0,0.88);
+    &:hover { color: #7c3aed; }
+  }
+
+  .post .entry { color: rgba(0,0,0,0.50); }
+  .post blockquote { color: rgba(0,0,0,0.55); }
+
+  .read-more { color: #7c3aed; &:hover { color: #6d28d9; } }
+
+  .pagination {
+    a, span, em {
+      border-color: rgba(0,0,0,0.09);
+      color: rgba(0,0,0,0.55);
+      background: rgba(0,0,0,0.025);
+      &:hover { background: #7c3aed; color: white; border-color: #7c3aed; }
+    }
+    em { background: #7c3aed; color: white; border-color: #7c3aed; font-style: normal; }
+    .pagination-disabled:hover {
+      background: rgba(0,0,0,0.025);
+      color: rgba(0,0,0,0.55);
+      border-color: rgba(0,0,0,0.09);
+    }
+  }
+
+  // ── About 페이지 ────────────────────
+  .about-intro {
+    background: rgba(0,0,0,0.025);
+    border-color: rgba(0,0,0,0.09);
+    border-left-color: #7c3aed;
+    h2 { color: rgba(0,0,0,0.88); }
+    p  { color: rgba(0,0,0,0.50); }
+  }
+
+  .edu-item {
+    background: rgba(0,0,0,0.025);
+    border-color: rgba(0,0,0,0.09);
+    color: rgba(0,0,0,0.58);
+  }
+
+  // ── 연락 ────────────────────────────
+  .contact-card {
+    background: rgba(0,0,0,0.025);
+    border-color: rgba(0,0,0,0.09);
+  }
+
+  .contact-availability {
+    color: #059669;
+    background: rgba(#059669, 0.07);
+    border-color: rgba(#059669, 0.20);
+    .badge-dot { background: #059669; }
+  }
+
+  .contact-email-link {
+    color: rgba(0,0,0,0.88) !important;
+    &:hover { color: #7c3aed !important; }
+  }
+
+  .contact-copy-btn {
+    background: rgba(0,0,0,0.05);
+    color: rgba(0,0,0,0.58);
+    border-color: rgba(0,0,0,0.13);
+    &:hover { background: rgba(0,0,0,0.08); color: rgba(0,0,0,0.88); }
+    &.copied {
+      background: rgba(#059669, 0.08);
+      border-color: rgba(#059669, 0.25);
+      color: #059669;
+    }
+  }
+
+  .contact-social {
+    background: rgba(0,0,0,0.03);
+    border-color: rgba(0,0,0,0.09);
+    color: rgba(0,0,0,0.52) !important;
+    &:hover {
+      background: rgba(#7c3aed, 0.08);
+      border-color: rgba(#7c3aed, 0.25);
+      color: rgba(0,0,0,0.88) !important;
+    }
+  }
+
+  // ── 푸터 ────────────────────────────
+  .wrapper-footer {
+    background: #eef0f3;
+    border-top-color: rgba(0,0,0,0.09);
+  }
+
+  .footer-copy { color: rgba(0,0,0,0.28); }
+
+  footer .footer-icons a {
+    opacity: 0.35;
+    &:hover { opacity: 0.70; }
+    svg { fill: rgba(0,0,0,0.70); }
+  }
+
+  // ── 태그 / 아카이브 ─────────────────
+  .tags li a { color: rgba(0,0,0,0.45); &:hover { color: rgba(0,0,0,0.65); } }
+
+  .tag-box a {
+    background-color: rgba(0,0,0,0.03);
+    border-color: rgba(0,0,0,0.09);
+    color: rgba(0,0,0,0.55);
+    &:hover { background: rgba(#7c3aed, 0.08); color: #7c3aed; }
+  }
+
+  .contact-links a {
+    background: rgba(0,0,0,0.025);
+    color: rgba(0,0,0,0.88) !important;
+    border-color: rgba(0,0,0,0.09);
+    &:hover {
+      background: rgba(#7c3aed, 0.08);
+      border-color: rgba(#7c3aed, 0.30);
+      box-shadow: 0 4px 20px rgba(#7c3aed, 0.10);
+      color: rgba(0,0,0,0.88) !important;
+    }
+  }
+}
