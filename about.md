@@ -7,7 +7,7 @@ permalink: /about/
 <div class="about-intro">
   <h2>안녕하세요, 진예규입니다</h2>
   <p>
-    부산대학교 전기컴퓨터공학부 정보컴퓨터공학을 졸업한 개발자입니다.<br>
+    컴퓨터공학을 전공한 개발자입니다.<br>
     프로젝트, 기술 스택, 이력 등 전체 내용은 <a href="/">메인 페이지</a>에서 확인하실 수 있습니다.
   </p>
 </div>
@@ -17,8 +17,8 @@ permalink: /about/
 ## Education
 
 <div class="edu-item">
-  <strong>부산대학교 (Pusan National University)</strong><br>
-  전기컴퓨터공학부 정보컴퓨터공학 · 졸업
+  <strong>00대학교</strong><br>
+  컴퓨터공학 · 졸업
 </div>
 
 ---
