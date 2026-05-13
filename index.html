@@ -273,6 +273,51 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
 
   <div class="project-card">
     <div class="project-header">
+      <h3 class="project-title">Water Treatment Graph RAG — 수처리 도메인 특화 지식 그래프 검색 시스템</h3>
+      <a href="https://github.com/teriyakki-jin/Graph-RAG-with-water" target="_blank" class="project-link">GitHub →</a>
+    </div>
+    <p class="project-desc">한국 수도법·먹는물 수질기준·정수처리 공정 문서 8종을 GPT-4o로 파싱해 20종 노드/24종 관계의 지식 그래프를 구축하고, Neo4j Graph DB와 KR-SBERT 벡터 검색을 asyncio로 병렬 실행하는 하이브리드 RAG 시스템. 자체 5-지표 평가 프레임워크 40문항 기준 Overall 0.830 달성.</p>
+    <ul class="project-features">
+      <li>LLM → Cypher 생성 → Neo4j 그래프 검색과 KR-SBERT 벡터 검색을 병렬 실행, 두 컨텍스트를 통합해 멀티홉 추론 처리</li>
+      <li>복합 질의 자동 분해 (비교·인과·절차 키워드 또는 80자 초과 시 서브쿼리로 분해 후 병렬 검색)</li>
+      <li>FastAPI SSE 스트리밍 + Next.js D3.js force-directed graph로 지식 그래프 실시간 시각화</li>
+    </ul>
+    <div class="project-stack">
+      <span class="badge badge-green">FastAPI</span>
+      <span class="badge badge-green">Python</span>
+      <span class="badge badge-gray">Neo4j</span>
+      <span class="badge badge-purple">GPT-4o</span>
+      <span class="badge badge-purple">KR-SBERT</span>
+      <span class="badge badge-blue">Next.js</span>
+      <span class="badge badge-blue">D3.js</span>
+      <span class="badge badge-gray">Docker</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h3 class="project-title">Longevity Intelligence Platform — 혈액 바이오마커 기반 생물학적 나이 예측 AI</h3>
+      <a href="https://github.com/teriyakki-jin/longevity-intelligence-platform" target="_blank" class="project-link">GitHub →</a>
+    </div>
+    <p class="project-desc">CDC NHANES 2009–2020 공개 데이터(약 4만 명)를 기반으로 LightGBM·Cox PH·XGBoost 4개 ML 모델을 학습하고, Causal DAG + Monte Carlo Digital Twin으로 라이프스타일 개선 효과를 10년 단위로 시뮬레이션하는 풀스택 AI 건강 플랫폼.</p>
+    <ul class="project-features">
+      <li>LightGBM + Optuna Bayesian HPO(80 trials)로 생물학적 나이 예측 MAE &lt; 5년, Pearson r &gt; 0.95 달성</li>
+      <li>Cox PH 모델로 5년·10년 생존 확률 산출(C-index 0.8373), XGBoost로 심혈관·암 등 5종 원인별 사망 확률 제공</li>
+      <li>라이프스타일 슬라이더 → Causal DAG 전파 → Monte Carlo 500회로 생물학적 나이 변화 95% CI 실시간 계산</li>
+    </ul>
+    <div class="project-stack">
+      <span class="badge badge-purple">LightGBM</span>
+      <span class="badge badge-purple">XGBoost</span>
+      <span class="badge badge-purple">SHAP</span>
+      <span class="badge badge-green">FastAPI</span>
+      <span class="badge badge-blue">Next.js</span>
+      <span class="badge badge-blue">D3.js</span>
+      <span class="badge badge-purple">Claude API</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
       <h3 class="project-title">NodeConnection — 블록체인 증명서 발급 시스템</h3>
       <a href="https://github.com/node-connection/node-connection-backend" target="_blank" class="project-link">GitHub →</a>
     </div>
