@@ -17,7 +17,7 @@ permalink: /about/
 ## Education
 
 <div class="edu-item">
-  <strong>00대학교</strong><br>
+  <strong>부산대학교</strong><br>
   컴퓨터공학 · 졸업
 </div>
 
