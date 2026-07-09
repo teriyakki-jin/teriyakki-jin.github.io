@@ -69,7 +69,7 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
       </div>
       <div class="photo-float-badge">
         <p class="pfb-eyebrow">최근 활동</p>
-        <p class="pfb-number">14+</p>
+        <p class="pfb-number">15+</p>
         <p class="pfb-sub">Projects</p>
       </div>
     </div>
@@ -111,7 +111,7 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
   <div class="stats-row">
     <div class="stat-item">
       <p class="stat-label">개인·팀 프로젝트</p>
-      <p class="stat-num" data-count="14" data-suffix="+">0+</p>
+      <p class="stat-num" data-count="15" data-suffix="+">0+</p>
     </div>
     <div class="stat-item">
       <p class="stat-label">작성한 테스트 코드</p>
@@ -273,6 +273,56 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
 
   <div class="project-card">
     <div class="project-header">
+      <h3 class="project-title">localops-agent — MCP 기반 로컬-퍼스트 AI Agent Orchestrator</h3>
+      <a href="https://github.com/teriyakki-jin/localops-agent" target="_blank" class="project-link">GitHub →</a>
+    </div>
+    <p class="project-desc">내 PC 안에서 돌아가는 업무 OS를 목표로, 로컬 데이터와 MCP 툴을 연결하고 승인 기반 실행 정책을 적용한 AI 에이전트. OpenAI Agents SDK 기반 Agent Orchestrator가 Planner, Policy Engine, Trace Logger를 묶어 파일·Git·노트·커맨드 작업을 안전하게 조율합니다.</p>
+    <ul class="project-features">
+      <li>FastMCP stdio 서버(mcp-fs, mcp-git, mcp-notes, mcp-runner)를 독립 툴로 연결해 로컬 작업 자동화</li>
+      <li>R/W/X/N 권한 모델을 두고 파일 쓰기, 커맨드 실행, 외부 네트워크 작업은 승인 후 실행되도록 Policy Engine 설계</li>
+      <li>SQLite Trace Logger로 모든 툴 호출과 승인 흐름을 기록해 재현 가능성과 감사 가능성 확보</li>
+    </ul>
+    <div class="project-stack">
+      <span class="badge badge-purple">MCP</span>
+      <span class="badge badge-purple">OpenAI Agents SDK</span>
+      <span class="badge badge-green">Python</span>
+      <span class="badge badge-green">FastAPI</span>
+      <span class="badge badge-gray">FastMCP</span>
+      <span class="badge badge-gray">SQLite</span>
+      <span class="badge badge-blue">HTMX</span>
+      <span class="badge badge-blue">WebSocket</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h3 class="project-title">ConsentLedger — 마이데이터 동의·전송 관리 플랫폼</h3>
+      <div class="project-links">
+        <a href="https://dgrf2fg1y3qje.cloudfront.net" target="_blank" class="project-link">Live Demo →</a>
+        <a href="https://github.com/teriyakki-jin/consentledger" target="_blank" class="project-link">GitHub →</a>
+      </div>
+    </div>
+    <p class="project-desc">「개인정보 보호법」 제35조의2 기반 마이데이터 동의·전송 관리 시스템. SHA-256 해시 체인 감사 로그, Claude AI 이상 탐지, Spring AI MCP 서버를 통합한 풀스택 개인 프로젝트. AWS EC2 · RDS · S3 · CloudFront 직접 배포, GitHub Actions CI/CD. (단위 119 + 통합 26 = 테스트 145개)</p>
+    <ul class="project-features">
+      <li>SHA-256 해시 체인 + DB 트리거(UPDATE/DELETE 차단) + 비관적 락으로 감사 로그 3중 불변성 보장</li>
+      <li>JWT(사용자) · API Key SHA-256 해시(에이전트) 이중 인증, RBAC 3단계 권한, 상태 머신 멱등성 보장</li>
+      <li>Spring AI MCP 서버(SSE)로 Agent Tool을 제공하고 Claude Desktop과 직접 연동해 보안 패턴 자동 탐지</li>
+    </ul>
+    <div class="project-stack">
+      <span class="badge badge-green">Spring Boot</span>
+      <span class="badge badge-green">Java 17</span>
+      <span class="badge badge-blue">React 19</span>
+      <span class="badge badge-blue">TypeScript</span>
+      <span class="badge badge-gray">PostgreSQL</span>
+      <span class="badge badge-purple">Spring AI MCP</span>
+      <span class="badge badge-gray">AWS</span>
+      <span class="badge badge-gray">Docker</span>
+      <span class="badge badge-gray">GitHub Actions</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
       <h3 class="project-title">Water Treatment Graph RAG — 수처리 도메인 특화 지식 그래프 검색 시스템</h3>
       <a href="https://github.com/teriyakki-jin/Graph-RAG-with-water" target="_blank" class="project-link">GitHub →</a>
     </div>
@@ -332,33 +382,6 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
       <span class="badge badge-green">Java</span>
       <span class="badge badge-gray">Hyperledger Fabric</span>
       <span class="badge badge-gray">Docker</span>
-    </div>
-  </div>
-
-  <div class="project-card">
-    <div class="project-header">
-      <h3 class="project-title">ConsentLedger — 마이데이터 동의·전송 관리 플랫폼</h3>
-      <div class="project-links">
-        <a href="https://dgrf2fg1y3qje.cloudfront.net" target="_blank" class="project-link">Live Demo →</a>
-        <a href="https://github.com/teriyakki-jin/consentledger" target="_blank" class="project-link">GitHub →</a>
-      </div>
-    </div>
-    <p class="project-desc">「개인정보 보호법」 제35조의2 기반 마이데이터 동의·전송 관리 시스템. SHA-256 해시 체인 감사 로그, Claude AI 이상 탐지, Spring AI MCP 서버를 통합한 풀스택 개인 프로젝트. AWS EC2 · RDS · S3 · CloudFront 직접 배포, GitHub Actions CI/CD. (단위 119 + 통합 26 = 테스트 145개)</p>
-    <ul class="project-features">
-      <li>SHA-256 해시 체인 + DB 트리거(UPDATE/DELETE 차단) + 비관적 락으로 감사 로그 3중 불변성 보장</li>
-      <li>JWT(사용자) · API Key SHA-256 해시(에이전트) 이중 인증, RBAC 3단계 권한, 상태 머신 멱등성 보장</li>
-      <li>Spring AI MCP 서버(SSE)로 Claude Desktop 직접 연동, 4가지 보안 패턴 자동 탐지</li>
-    </ul>
-    <div class="project-stack">
-      <span class="badge badge-green">Spring Boot</span>
-      <span class="badge badge-green">Java 17</span>
-      <span class="badge badge-blue">React 19</span>
-      <span class="badge badge-blue">TypeScript</span>
-      <span class="badge badge-gray">PostgreSQL</span>
-      <span class="badge badge-purple">Spring AI</span>
-      <span class="badge badge-gray">AWS</span>
-      <span class="badge badge-gray">Docker</span>
-      <span class="badge badge-gray">GitHub Actions</span>
     </div>
   </div>
 
