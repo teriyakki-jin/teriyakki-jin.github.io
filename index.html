@@ -69,7 +69,7 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
       </div>
       <div class="photo-float-badge">
         <p class="pfb-eyebrow">최근 활동</p>
-        <p class="pfb-number">16+</p>
+        <p class="pfb-number">23</p>
         <p class="pfb-sub">Projects</p>
       </div>
     </div>
@@ -269,7 +269,121 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
 <section class="port-section" id="projects">
   <p class="section-label">03 / Projects</p>
   <h2 class="section-heading">주요 프로젝트</h2>
-  <p class="section-sub">직접 설계하고 배포한 풀스택 · AI · 보안 프로젝트들입니다.</p>
+  <p class="section-sub">백엔드와 AI 서비스부터 네트워크 장애·보안 실습까지, 직접 만든 프로젝트입니다.</p>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h3 class="project-title">TelcoNet Sentinel — OSPF 망 장애 탐지와 복원력 분석</h3>
+      <a href="https://github.com/teriyakki-jin/telconet-sentinel" target="_blank" rel="noopener" class="project-link">GitHub →</a>
+    </div>
+    <p class="project-desc">FRRouting 라우터 6대로 망을 구성하고, 링크는 살아 있지만 패킷이 버려지는 블랙홀 장애를 주입했습니다. OSPF 단독 구성과 BFD 연동 구성의 탐지 시간을 비교하고, 장애 후 경로 전환과 서비스 복구를 원시 로그와 Grafana에서 확인했습니다.</p>
+    <ul class="project-features">
+      <li>구성별 20회 반복 실험에서 p95 탐지 상한 OSPF 4,058ms, BFD 519ms 측정</li>
+      <li>링크·전송 노드 N-1 분석으로 서비스 이중화 설계를 비교하고, 공유 위험 그룹(SRLG)의 복합 장애에서 경로 소실 확인</li>
+      <li>FastAPI 영향 분석, SQLite 수렴 이력, Prometheus 지표와 containerlab E2E 검증 연결</li>
+    </ul>
+    <p class="project-desc">측정값은 로컬 랩의 토폴로지와 설정에서 얻은 관측 상한입니다.</p>
+    <div class="project-stack">
+      <span class="badge badge-gray">FRRouting</span><span class="badge badge-gray">containerlab</span><span class="badge badge-blue">OSPF / BFD</span><span class="badge badge-green">FastAPI</span><span class="badge badge-gray">Prometheus</span><span class="badge badge-gray">Grafana</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h3 class="project-title">NetSentry — 가상 네트워크 운영 콘솔</h3>
+      <a href="https://github.com/teriyakki-jin/netsentry" target="_blank" rel="noopener" class="project-link">GitHub →</a>
+    </div>
+    <p class="project-desc">가상 장비 10대와 서비스 5개의 상태를 수집하고, 장애 탐지부터 백업 경로 전환까지 한 화면에서 확인하는 운영 콘솔입니다. Python 수집기가 만든 데이터를 Spring Boot와 PostgreSQL에 저장하고 React 화면에 연결했습니다.</p>
+    <ul class="project-features">
+      <li>장비 자원·인터페이스·트래픽, 서비스 헬스, NTP 오차와 NAC 접근 이벤트 수집</li>
+      <li>같은 원인의 알림을 묶고, 링크 장애·DNS 지연·인증 서비스 저하 시나리오 3종 재현</li>
+      <li>장애 대응 6단계와 실행 이력을 DB에 저장하고 수집기 상태와 동기화</li>
+    </ul>
+    <div class="project-stack">
+      <span class="badge badge-green">Spring Boot</span><span class="badge badge-blue">React</span><span class="badge badge-blue">TypeScript</span><span class="badge badge-green">Python</span><span class="badge badge-gray">PostgreSQL</span><span class="badge badge-gray">Docker Compose</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h3 class="project-title">Zero Trust Network Lab — 요청별 접근 제어 실습</h3>
+      <a href="https://github.com/teriyakki-jin/zero-trust-network-lab" target="_blank" rel="noopener" class="project-link">GitHub →</a>
+    </div>
+    <p class="project-desc">내부망에 있다는 이유만으로 접근을 허용하지 않고, 사용자 신원·단말 상태·위험 점수·요청 행위를 매번 확인하는 실습 환경입니다. Keycloak 인증과 OPA 정책 판단을 분리하고 FastAPI에서 접근을 제어했습니다.</p>
+    <ul class="project-features">
+      <li>JWT 서명·발급자·대상·유효기간 검증과 기본 차단 정책 적용</li>
+      <li>인증 또는 정책 평가 실패 시 차단하고, 보호 앱의 호스트 포트를 비공개로 구성</li>
+      <li>OPA 정책 테스트 6개와 통합 접근 시나리오 7개 검증</li>
+    </ul>
+    <div class="project-stack">
+      <span class="badge badge-gray">Keycloak</span><span class="badge badge-gray">OPA</span><span class="badge badge-green">FastAPI</span><span class="badge badge-purple">JWT</span><span class="badge badge-gray">Docker Compose</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h3 class="project-title">Network Forensics Lab — 차량 Ethernet 침해 분석</h3>
+      <a href="https://github.com/teriyakki-jin/network-forensics-lab" target="_blank" rel="noopener" class="project-link">GitHub →</a>
+    </div>
+    <p class="project-desc">격리된 Docker 망에서 기업·생산·차량 Ethernet의 공격 트래픽을 생성하고, 같은 PCAP을 Snort와 Suricata로 분석했습니다. 탐지 결과를 비교한 뒤 사건 타임라인과 파일 해시를 포함한 증거 목록을 생성합니다.</p>
+    <ul class="project-features">
+      <li>DoIP 진단 명령과 SOME/IP 서비스 탐색을 실제 프로토콜 바이트로 생성</li>
+      <li>공격 8종·정상 8종을 5회 반복한 로컬 회귀에서 두 IDS 모두 재현율 100%, 오탐률 0% 기록</li>
+      <li>MITRE ATT&amp;CK·Sigma 규칙 연결, SHA-256 증거 검증, 테스트 40개와 커버리지 92%</li>
+    </ul>
+    <p class="project-desc">탐지 수치는 저장소의 합성 테스트 데이터 기준입니다.</p>
+    <div class="project-stack">
+      <span class="badge badge-gray">Snort 3</span><span class="badge badge-gray">Suricata 8</span><span class="badge badge-gray">Elastic Stack</span><span class="badge badge-green">Python</span><span class="badge badge-blue">DoIP / SOME/IP</span><span class="badge badge-gray">Docker</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h3 class="project-title">LLM Security Gateway — LLM 요청 검사와 암호화 프록시</h3>
+      <a href="https://github.com/teriyakki-jin/llm-security-gateway" target="_blank" rel="noopener" class="project-link">GitHub →</a>
+    </div>
+    <p class="project-desc">LLM 요청에서 프롬프트 인젝션과 탈옥 시도를 검사하고, 응답의 개인정보와 시크릿을 마스킹하는 게이트웨이입니다. Python 검사 계층과 Go 암호화 프록시를 나눠 구현했습니다.</p>
+    <ul class="project-features">
+      <li>규칙·휴리스틱·DeBERTa 모델을 순서대로 적용하고 ONNX INT8 추론 사용</li>
+      <li>ML-KEM-768/X25519 키 교환과 AES-256-GCM 전송 암호화 구현</li>
+      <li>차단 없이 기록하는 모드, 감사 로그, Redis 기반 요청 속도 제한 제공</li>
+    </ul>
+    <div class="project-stack">
+      <span class="badge badge-green">Python</span><span class="badge badge-green">Go</span><span class="badge badge-purple">ONNX</span><span class="badge badge-gray">Redis</span><span class="badge badge-purple">ML-KEM / X25519</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h3 class="project-title">Firm-Sentry — IoT 펌웨어 정적 분석과 퍼징</h3>
+      <a href="https://github.com/teriyakki-jin/firm-sentry" target="_blank" rel="noopener" class="project-link">GitHub →</a>
+    </div>
+    <p class="project-desc">로컬 펌웨어 파일과 바이너리에서 보안 점검 항목을 찾는 CLI 도구입니다. ELF 구조와 보호 설정을 읽고, 하드코딩된 인증 정보나 위험한 API 사용 흔적을 검토 후보로 정리합니다.</p>
+    <ul class="project-features">
+      <li>ELF 아키텍처와 NX·PIE·RELRO·stack canary 확인</li>
+      <li>민감한 값 마스킹, SHA-256 해시와 JSON·SARIF 보고서 생성</li>
+      <li>AFL++ 실습용 설정 파서와 입력 corpus 제공</li>
+    </ul>
+    <div class="project-stack">
+      <span class="badge badge-green">Python</span><span class="badge badge-green">C</span><span class="badge badge-gray">ELF</span><span class="badge badge-gray">AFL++</span><span class="badge badge-gray">SARIF</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h3 class="project-title">QuantRisk Lab — 포트폴리오 위험 분석</h3>
+      <a href="https://github.com/teriyakki-jin/quant-risk-lab" target="_blank" rel="noopener" class="project-link">GitHub →</a>
+    </div>
+    <p class="project-desc">공개 주가 데이터로 포트폴리오의 변동성·낙폭·VaR와 종목별 위험 기여도를 계산하는 웹 앱입니다. GS Quant 계산을 NumPy/Pandas 결과와 비교하고, 사용한 데이터와 파라미터로 분석 재현성 ID를 생성합니다.</p>
+    <ul class="project-features">
+      <li>종목 비중 입력, 상관관계·집중도 분석과 가격 충격 스트레스 테스트</li>
+      <li>변동성 신호를 하루 지연하고 거래비용을 반영한 백테스트</li>
+      <li>FastAPI·React·PostgreSQL 구성과 Docker Compose 실행 환경 제공</li>
+    </ul>
+    <div class="project-stack">
+      <span class="badge badge-purple">GS Quant</span><span class="badge badge-green">FastAPI</span><span class="badge badge-blue">React</span><span class="badge badge-green">NumPy / Pandas</span><span class="badge badge-gray">PostgreSQL</span>
+    </div>
+  </div>
 
   <div class="project-card">
     <div class="project-header">
