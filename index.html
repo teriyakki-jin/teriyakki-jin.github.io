@@ -1,38 +1,33 @@
 ---
 layout: default
-description: "Java · Spring Boot · React · AI로 서비스를 설계하고 만드는 개발자, 진예규의 포트폴리오입니다."
+description: "OSPF/BFD 망 설계, 장애 대응, 패킷 분석과 운영 자동화 프로젝트를 담은 진예규의 포트폴리오입니다."
 ---
 
 <!-- ─── HERO ─────────────────────────────────────── -->
 <section class="home-hero">
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
-  <div class="hero-orb hero-orb-purple" aria-hidden="true"></div>
-  <div class="hero-orb hero-orb-sky"    aria-hidden="true"></div>
-  <div class="hero-orb hero-orb-violet" aria-hidden="true"></div>
 
   <div class="hero-inner">
     <div class="hero-badge">
       <span class="badge-dot"></span>
-      현재 채용·협업 가능합니다
+      네트워크 · 인프라
     </div>
 
     <h1 class="hero-name">
-      안녕하세요,
-      <span class="hero-name-gradient">진예규입니다</span>
+      <span class="hero-name-gradient">진예규</span>
     </h1>
 
     <div class="hero-role-row">
-      <span class="hero-role-text" id="typewriter-text"></span>
-      <span class="tw-cursor" aria-hidden="true"></span>
+      <span class="hero-role-text">Network Engineering Portfolio</span>
     </div>
 
     <p class="hero-desc">
-      Java · Spring Boot · React · AI.<br>
-      서비스를 설계하고, 만들고, 기록합니다.
+      망을 구성하고 장애를 재현해, 경로가 바뀌고 서비스가 복구되는 과정을 확인합니다.<br>
+      Python과 Java로 수집·분석·모니터링 도구를 만듭니다.
     </p>
 
     <div class="hero-actions">
-      <a href="#projects" class="hero-cta">프로젝트 보기</a>
+      <a href="#projects" class="hero-cta">네트워크 프로젝트 보기</a>
       <a href="https://github.com/teriyakki-jin" target="_blank" rel="noopener" class="hero-ghost">GitHub ↗</a>
     </div>
 
@@ -58,7 +53,7 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
 <section class="port-section" id="about">
   <p class="section-label">01 / About</p>
   <h2 class="section-heading">저에 대해</h2>
-  <p class="section-sub">부산대학교 CS 졸업 · AI와 풀스택 개발에 관심이 많은 개발자입니다.</p>
+  <p class="section-sub">부산대학교 컴퓨터공학 졸업 · 네트워크와 인프라 운영에 관심을 두고 있습니다.</p>
 
   <div class="about-layout">
 
@@ -79,6 +74,7 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
       <h3 class="about-greeting">안녕하세요, 진예규입니다 👋</h3>
 
       <p>백엔드부터 AI까지, 시스템 전체의 흐름을 설계하고 배포합니다.</p>
+      <p>최근에는 OSPF/BFD 장애 탐지, 패킷 분석, 운영 모니터링을 직접 실습하고 있습니다. 설정만 확인하는 데서 끝내지 않고, 장애 전후의 로그와 서비스 도달성을 함께 살펴봅니다.</p>
 
       <div class="about-info-grid">
         <div class="info-item">
@@ -111,10 +107,10 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
   <div class="stats-row">
     <div class="stat-item">
       <p class="stat-label">개인·팀 프로젝트</p>
-      <p class="stat-num" data-count="16" data-suffix="+">0+</p>
+      <p class="stat-num" data-count="23" data-suffix="">23</p>
     </div>
     <div class="stat-item">
-      <p class="stat-label">작성한 테스트 코드</p>
+      <p class="stat-label">ConsentLedger 테스트</p>
       <p class="stat-num" data-count="145" data-suffix="+">0+</p>
     </div>
     <div class="stat-item">
@@ -133,8 +129,26 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
 
 <section class="port-section" id="skills">
   <p class="section-label">02 / Skills</p>
-  <h2 class="section-heading">기술 스택</h2>
-  <p class="section-sub">다양한 기술을 활용해 백엔드부터 AI까지 일관된 품질의 결과물을 만듭니다.</p>
+  <h2 class="section-heading">프로젝트에서 사용한 기술</h2>
+  <p class="section-sub">망 구성과 패킷 분석에 사용한 도구, 운영 화면과 자동화에 사용한 개발 기술입니다.</p>
+
+  <div class="network-skills">
+    <div>
+      <h3>망 설계·장애 대응</h3>
+      <p>OSPF cost와 우회 경로 설계, BFD 장애 탐지, 링크·노드 N-1과 SRLG 분석</p>
+      <span>FRRouting · containerlab · Linux</span>
+    </div>
+    <div>
+      <h3>트래픽·접근 제어</h3>
+      <p>PCAP 분석, IDS 결과 비교, JWT 인증과 요청별 접근 정책 검증</p>
+      <span>tcpdump · Snort · Suricata · Keycloak · OPA</span>
+    </div>
+    <div>
+      <h3>모니터링·자동화</h3>
+      <p>장비 상태 수집, 경보 중복 제거, 장애 실험 자동화와 운영 이력 저장</p>
+      <span>Python · Java · Prometheus · Grafana · Elastic</span>
+    </div>
+  </div>
 
   <div class="skills-grid">
     <div class="skill-card">
@@ -268,8 +282,18 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
 
 <section class="port-section" id="projects">
   <p class="section-label">03 / Projects</p>
-  <h2 class="section-heading">주요 프로젝트</h2>
-  <p class="section-sub">백엔드와 AI 서비스부터 네트워크 장애·보안 실습까지, 직접 만든 프로젝트입니다.</p>
+  <h2 class="section-heading">네트워크 설계부터 장애 분석까지</h2>
+  <p class="section-sub">로컬 랩에서 망 설계, 장애 대응, 패킷 분석과 운영 자동화를 실습했습니다.</p>
+  <div class="project-toolbar" hidden>
+    <div class="project-filters" role="group" aria-label="프로젝트 분야">
+      <button type="button" data-filter="featured" aria-pressed="true">대표 프로젝트</button>
+      <button type="button" data-filter="network" aria-pressed="false">네트워크·운영</button>
+      <button type="button" data-filter="security" aria-pressed="false">보안</button>
+      <button type="button" data-filter="backend" aria-pressed="false">백엔드·AI</button>
+      <button type="button" data-filter="all" aria-pressed="false">전체</button>
+    </div>
+    <span class="project-result-count" aria-live="polite"></span>
+  </div>
 
   <div class="project-card">
     <div class="project-header">
