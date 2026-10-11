@@ -17,7 +17,7 @@
 | [TelcoNet Sentinel](https://github.com/teriyakki-jin/telconet-sentinel) | OSPF/BFD 장애 탐지 비교, 경로 전환 계측, 링크·노드·SRLG 영향 분석 |
 | [NetSentry](https://github.com/teriyakki-jin/netsentry) | 가상 장비·서비스 상태 수집, 알림 상관분석, 장애 전환 운영 콘솔 |
 | [Zero Trust Network Lab](https://github.com/teriyakki-jin/zero-trust-network-lab) | Keycloak 인증, OPA 정책 판단, FastAPI 요청별 접근 제어 |
-| [Network Forensics Lab](https://github.com/teriyakki-jin/network-forensics-lab) | 차량 Ethernet 공격 트래픽, Snort/Suricata 교차 분석, 사건 타임라인과 증거 목록 |
+| [Network Forensics Lab](https://github.com/teriyakki-jin/network-forensics-lab) | PCAP 패킷 분석, Snort/Suricata 침해 징후 교차 검증, 사건 타임라인과 증거 목록 |
 | [LLM Security Gateway](https://github.com/teriyakki-jin/llm-security-gateway) | 프롬프트 인젝션 검사, 개인정보 마스킹, 하이브리드 암호화 프록시 |
 | [Firm-Sentry](https://github.com/teriyakki-jin/firm-sentry) | ELF 보호 설정·위험 API 정적 분석, SARIF 보고서, AFL++ 퍼징 실습 |
 | [QuantRisk Lab](https://github.com/teriyakki-jin/quant-risk-lab) | 포트폴리오 위험 기여도, 독립 계산 교차검증, 재현성 ID와 백테스트 |
