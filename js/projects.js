@@ -78,6 +78,12 @@
       media.appendChild(img);
       card.querySelector('.project-header').after(media);
     }
+    var copy = document.createElement('div');
+    copy.className = 'project-copy';
+    Array.from(card.children).forEach(function (child) {
+      if (!child.classList.contains('project-media')) copy.appendChild(child);
+    });
+    card.appendChild(copy);
   });
 
   Object.keys(featured).forEach(function (slug) {

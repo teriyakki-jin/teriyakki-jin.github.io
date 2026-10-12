@@ -66,7 +66,7 @@
     <script defer src="/js/alexpearce.js"></script>
   </head>
 
-  <body>
+  <body class="network-portfolio">
     <div class="wrapper-masthead" id="site-nav">
       <div class="container">
         <header class="masthead clearfix">
@@ -110,9 +110,6 @@
 
     {% include analytics.html %}
 
-    <script src="{{ site.baseurl }}/js/neural-bg.js"></script>
-    <script src="{{ site.baseurl }}/js/star-field.js"></script>
-    <script src="{{ site.baseurl }}/js/typewriter.js"></script>
     <script src="{{ site.baseurl }}/js/projects.js"></script>
 
     <script>
@@ -195,7 +192,7 @@
     <script>
       // Scroll-spy nav
       (function () {
-        if (!document.getElementById('hero-canvas')) return; // home page only
+        if (!document.querySelector('.home-hero')) return; // home page only
         var sections = Array.from(document.querySelectorAll('section[id]'));
         var links    = document.querySelectorAll('nav a[data-spy]');
         if (!sections.length || !links.length) return;
