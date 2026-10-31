@@ -1196,6 +1196,84 @@ nav {
     &:hover { background: $av; color: #080808; border-color: $av; }
   }
 
+  .project-media {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 9;
+    margin: 14px 0 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 14px;
+    background: #0b0d12;
+    color: #fff !important;
+    box-shadow: 0 12px 34px rgba(0,0,0,0.22);
+    isolation: isolate;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.45s ease, filter 0.35s ease;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 44% 0 0;
+      background: linear-gradient(to bottom, transparent, rgba(3,5,9,0.90));
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    &:hover img {
+      transform: scale(1.018);
+      filter: saturate(1.06) contrast(1.02);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $av;
+      outline-offset: 3px;
+    }
+  }
+
+  .project-media-diagram {
+    background: #f7f8fa;
+
+    img {
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  .project-media-caption {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 13px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.9);
+
+    span {
+      color: rgba(255,255,255,0.78);
+      font-weight: 600;
+    }
+
+    strong {
+      color: #fff;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+  }
+
   .project-desc {
     color: $t500;
     margin: 0 0 12px;
@@ -1217,6 +1295,22 @@ nav {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+  }
+
+  @include mobile {
+    .project-media {
+      margin: 12px 0 16px;
+      border-radius: 11px;
+    }
+
+    .project-media-caption {
+      left: 12px;
+      right: 12px;
+      bottom: 10px;
+
+      span { display: none; }
+      strong { margin-left: auto; }
+    }
   }
 }
 

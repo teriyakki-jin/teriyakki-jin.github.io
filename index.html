@@ -276,6 +276,10 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
       <h3 class="project-title">TelcoNet Sentinel — OSPF 망 장애 탐지와 복원력 분석</h3>
       <a href="https://github.com/teriyakki-jin/telconet-sentinel" target="_blank" rel="noopener" class="project-link">GitHub →</a>
     </div>
+    <a class="project-media" href="{{ site.baseurl }}/images/projects/telconet-sentinel.webp" target="_blank" rel="noopener" aria-label="TelcoNet Sentinel Grafana 네트워크 운영 대시보드 원본 보기">
+      <img src="{{ site.baseurl }}/images/projects/telconet-sentinel.webp" width="1600" height="1250" loading="lazy" decoding="async" alt="TelcoNet Sentinel의 장애 탐지, 경로 전환, 복구 시간을 보여주는 Grafana 네트워크 운영 대시보드">
+      <span class="project-media-caption"><span>Grafana · Network Operations Overview</span><strong>주요 화면 확대 ↗</strong></span>
+    </a>
     <p class="project-desc">FRRouting 라우터 6대로 망을 구성하고, 링크는 살아 있지만 패킷이 버려지는 블랙홀 장애를 주입했습니다. OSPF 단독 구성과 BFD 연동 구성의 탐지 시간을 비교하고, 장애 후 경로 전환과 서비스 복구를 원시 로그와 Grafana에서 확인했습니다.</p>
     <ul class="project-features">
       <li>구성별 20회 반복 실험에서 p95 탐지 상한 OSPF 4,058ms, BFD 519ms 측정</li>
@@ -293,6 +297,10 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
       <h3 class="project-title">NetSentry — 가상 네트워크 운영 콘솔</h3>
       <a href="https://github.com/teriyakki-jin/netsentry" target="_blank" rel="noopener" class="project-link">GitHub →</a>
     </div>
+    <a class="project-media" href="{{ site.baseurl }}/images/projects/netsentry.webp" target="_blank" rel="noopener" aria-label="NetSentry 네트워크 운영 콘솔 원본 보기">
+      <img src="{{ site.baseurl }}/images/projects/netsentry.webp" width="1600" height="1400" loading="lazy" decoding="async" alt="장비 상태, 장애 알림, 링크 페일오버 흐름을 한 화면에 표시한 NetSentry 운영 콘솔">
+      <span class="project-media-caption"><span>Operations Console · Overview</span><strong>주요 화면 확대 ↗</strong></span>
+    </a>
     <p class="project-desc">가상 장비 10대와 서비스 5개의 상태를 수집하고, 장애 탐지부터 백업 경로 전환까지 한 화면에서 확인하는 운영 콘솔입니다. Python 수집기가 만든 데이터를 Spring Boot와 PostgreSQL에 저장하고 React 화면에 연결했습니다.</p>
     <ul class="project-features">
       <li>장비 자원·인터페이스·트래픽, 서비스 헬스, NTP 오차와 NAC 접근 이벤트 수집</li>
@@ -309,6 +317,10 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
       <h3 class="project-title">Zero Trust Network Lab — 요청별 접근 제어 실습</h3>
       <a href="https://github.com/teriyakki-jin/zero-trust-network-lab" target="_blank" rel="noopener" class="project-link">GitHub →</a>
     </div>
+    <a class="project-media" href="{{ site.baseurl }}/images/projects/zero-trust-network-lab.webp" target="_blank" rel="noopener" aria-label="Zero Trust Network Lab 접근 정책 실행 결과 원본 보기">
+      <img src="{{ site.baseurl }}/images/projects/zero-trust-network-lab.webp" width="1440" height="1200" loading="lazy" decoding="async" alt="Keycloak, PEP, OPA로 실행한 7개 접근 정책 시나리오 결과 화면">
+      <span class="project-media-caption"><span>Execution Evidence · 7 Scenarios</span><strong>주요 화면 확대 ↗</strong></span>
+    </a>
     <p class="project-desc">내부망에 있다는 이유만으로 접근을 허용하지 않고, 사용자 신원·단말 상태·위험 점수·요청 행위를 매번 확인하는 실습 환경입니다. Keycloak 인증과 OPA 정책 판단을 분리하고 FastAPI에서 접근을 제어했습니다.</p>
     <ul class="project-features">
       <li>JWT 서명·발급자·대상·유효기간 검증과 기본 차단 정책 적용</li>
@@ -325,6 +337,10 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
       <h3 class="project-title">Network Forensics Lab — 차량 Ethernet 침해 분석</h3>
       <a href="https://github.com/teriyakki-jin/network-forensics-lab" target="_blank" rel="noopener" class="project-link">GitHub →</a>
     </div>
+    <a class="project-media" href="{{ site.baseurl }}/images/projects/network-forensics-lab.webp" target="_blank" rel="noopener" aria-label="Network Forensics Lab Kibana 분석 대시보드 원본 보기">
+      <img src="{{ site.baseurl }}/images/projects/network-forensics-lab.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Snort와 Suricata 탐지 결과, 시나리오, MITRE ATT&CK 매핑을 표시한 Kibana 대시보드">
+      <span class="project-media-caption"><span>Kibana · Cross-engine Evidence</span><strong>주요 화면 확대 ↗</strong></span>
+    </a>
     <p class="project-desc">격리된 Docker 망에서 기업·생산·차량 Ethernet의 공격 트래픽을 생성하고, 같은 PCAP을 Snort와 Suricata로 분석했습니다. 탐지 결과를 비교한 뒤 사건 타임라인과 파일 해시를 포함한 증거 목록을 생성합니다.</p>
     <ul class="project-features">
       <li>DoIP 진단 명령과 SOME/IP 서비스 탐색을 실제 프로토콜 바이트로 생성</li>
@@ -342,6 +358,10 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
       <h3 class="project-title">LLM Security Gateway — LLM 요청 검사와 암호화 프록시</h3>
       <a href="https://github.com/teriyakki-jin/llm-security-gateway" target="_blank" rel="noopener" class="project-link">GitHub →</a>
     </div>
+    <a class="project-media project-media-diagram" href="{{ site.baseurl }}/images/projects/llm-security-gateway.webp" target="_blank" rel="noopener" aria-label="LLM Security Gateway 시스템 구성도 원본 보기">
+      <img src="{{ site.baseurl }}/images/projects/llm-security-gateway.webp" width="1600" height="873" loading="lazy" decoding="async" alt="Go PQC 프록시와 FastAPI 보안 게이트웨이의 요청 검사 및 암호화 흐름 구성도">
+      <span class="project-media-caption"><span>Architecture · PQC Proxy + Security Gateway</span><strong>구성도 확대 ↗</strong></span>
+    </a>
     <p class="project-desc">LLM 요청에서 프롬프트 인젝션과 탈옥 시도를 검사하고, 응답의 개인정보와 시크릿을 마스킹하는 게이트웨이입니다. Python 검사 계층과 Go 암호화 프록시를 나눠 구현했습니다.</p>
     <ul class="project-features">
       <li>규칙·휴리스틱·DeBERTa 모델을 순서대로 적용하고 ONNX INT8 추론 사용</li>
@@ -374,6 +394,10 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
       <h3 class="project-title">QuantRisk Lab — 포트폴리오 위험 분석</h3>
       <a href="https://github.com/teriyakki-jin/quant-risk-lab" target="_blank" rel="noopener" class="project-link">GitHub →</a>
     </div>
+    <a class="project-media" href="{{ site.baseurl }}/images/projects/quant-risk-lab.webp" target="_blank" rel="noopener" aria-label="QuantRisk Lab 위험 분석 대시보드 원본 보기">
+      <img src="{{ site.baseurl }}/images/projects/quant-risk-lab.webp" width="1440" height="1599" loading="lazy" decoding="async" alt="수익률, 변동성, 최대 낙폭, VaR와 종목별 위험 기여도를 보여주는 QuantRisk Lab 대시보드">
+      <span class="project-media-caption"><span>Risk Workbench · Portfolio Audit</span><strong>주요 화면 확대 ↗</strong></span>
+    </a>
     <p class="project-desc">공개 주가 데이터로 포트폴리오의 변동성·낙폭·VaR와 종목별 위험 기여도를 계산하는 웹 앱입니다. GS Quant 계산을 NumPy/Pandas 결과와 비교하고, 사용한 데이터와 파라미터로 분석 재현성 ID를 생성합니다.</p>
     <ul class="project-features">
       <li>종목 비중 입력, 상관관계·집중도 분석과 가격 충격 스트레스 테스트</li>
@@ -390,6 +414,10 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
       <h3 class="project-title">Agent Runtime Security Lab — AI Agent 실행 경계 보안 플랫폼</h3>
       <a href="https://github.com/teriyakki-jin/agent-runtime-security-lab" target="_blank" class="project-link">GitHub →</a>
     </div>
+    <a class="project-media" href="{{ site.baseurl }}/images/projects/agent-runtime-security-lab.webp" target="_blank" rel="noopener" aria-label="Agent Runtime Security Lab 런타임 방어 콘솔 원본 보기">
+      <img src="{{ site.baseurl }}/images/projects/agent-runtime-security-lab.webp" width="1440" height="1735" loading="lazy" decoding="async" alt="정책, 런타임 이벤트, 승인 큐와 공격 시나리오를 연결한 Agent Runtime Security 방어 콘솔">
+      <span class="project-media-caption"><span>Runtime Defense Console · Intent ↔ Event</span><strong>주요 화면 확대 ↗</strong></span>
+    </a>
     <p class="project-desc">AI Agent의 허가된 행동(intent)과 컨테이너에서 실제 관측된 행동(runtime observation)을 비교해 정책 우회와 MCP 도구 오용을 탐지·격리하고, OCSF 증거로 남기는 로컬 보안 실습 플랫폼. OPA 정책, Tetragon eBPF, OCSF/Elastic SOC 파이프라인, OAuth 2.1 MCP 인증, 공급망 신뢰 게이트를 하나의 실행 환경으로 통합했습니다.</p>
     <ul class="project-features">
       <li>OPA 기반 allow/review/deny 정책과 1회성 human approval capability로 MCP 도구 실행 경계 통제</li>
@@ -440,6 +468,10 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
         <a href="https://github.com/teriyakki-jin/consentledger" target="_blank" class="project-link">GitHub →</a>
       </div>
     </div>
+    <a class="project-media project-media-diagram" href="{{ site.baseurl }}/images/projects/consentledger.webp" target="_blank" rel="noopener" aria-label="ConsentLedger 배포 아키텍처 원본 보기">
+      <img src="{{ site.baseurl }}/images/projects/consentledger.webp" width="1600" height="873" loading="lazy" decoding="async" alt="CloudFront, S3, EC2, RDS, Claude API와 GitHub Actions로 구성된 ConsentLedger 배포 아키텍처">
+      <span class="project-media-caption"><span>Deployment · AWS + MCP + CI/CD</span><strong>구성도 확대 ↗</strong></span>
+    </a>
     <p class="project-desc">「개인정보 보호법」 제35조의2 기반 마이데이터 동의·전송 관리 시스템. SHA-256 해시 체인 감사 로그, Claude AI 이상 탐지, Spring AI MCP 서버를 통합한 풀스택 개인 프로젝트. AWS EC2 · RDS · S3 · CloudFront 직접 배포, GitHub Actions CI/CD. (단위 119 + 통합 26 = 테스트 145개)</p>
     <ul class="project-features">
       <li>SHA-256 해시 체인 + DB 트리거(UPDATE/DELETE 차단) + 비관적 락으로 감사 로그 3중 불변성 보장</li>
@@ -464,6 +496,10 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
       <h3 class="project-title">Water Treatment Graph RAG — 수처리 도메인 특화 지식 그래프 검색 시스템</h3>
       <a href="https://github.com/teriyakki-jin/Graph-RAG-with-water" target="_blank" class="project-link">GitHub →</a>
     </div>
+    <a class="project-media" href="{{ site.baseurl }}/images/projects/water-treatment-graph-rag.webp" target="_blank" rel="noopener" aria-label="Water Treatment Graph RAG 지식 그래프 검색 화면 원본 보기">
+      <img src="{{ site.baseurl }}/images/projects/water-treatment-graph-rag.webp" width="1440" height="900" loading="lazy" decoding="async" alt="수처리 지식 그래프의 노드와 관계, 질의 입력 패널을 보여주는 Graph RAG 메인 화면">
+      <span class="project-media-caption"><span>Knowledge Graph · Hybrid Retrieval</span><strong>주요 화면 확대 ↗</strong></span>
+    </a>
     <p class="project-desc">한국 수도법·먹는물 수질기준·정수처리 공정 문서 8종을 GPT-4o로 파싱해 20종 노드/24종 관계의 지식 그래프를 구축하고, Neo4j Graph DB와 KR-SBERT 벡터 검색을 asyncio로 병렬 실행하는 하이브리드 RAG 시스템. 자체 5-지표 평가 프레임워크 40문항 기준 Overall 0.830 달성.</p>
     <ul class="project-features">
       <li>LLM → Cypher 생성 → Neo4j 그래프 검색과 KR-SBERT 벡터 검색을 병렬 실행, 두 컨텍스트를 통합해 멀티홉 추론 처리</li>
@@ -550,6 +586,10 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
       <h3 class="project-title">NEXUS — 모의주식거래 플랫폼</h3>
       <a href="https://github.com/teriyakki-jin/stock-frontend" target="_blank" class="project-link">GitHub →</a>
     </div>
+    <a class="project-media" href="{{ site.baseurl }}/images/projects/nexus.webp" target="_blank" rel="noopener" aria-label="NEXUS 포트폴리오 대시보드 원본 보기">
+      <img src="{{ site.baseurl }}/images/projects/nexus.webp" width="1440" height="900" loading="lazy" decoding="async" alt="시장 심리, 계좌 수익률, 종목 비중과 보유 현황을 표시한 NEXUS 포트폴리오 대시보드">
+      <span class="project-media-caption"><span>Trading Console · Portfolio Overview</span><strong>주요 화면 확대 ↗</strong></span>
+    </a>
     <p class="project-desc">Bloomberg Terminal 스타일의 모의주식거래 풀스택 플랫폼. KIS OpenAPI · Yahoo Finance 실시간 시세를 기반으로 주문 체결, 포트폴리오 분석, AI 리포트 챗봇을 제공합니다.</p>
     <ul class="project-features">
       <li>WebSocket STOMP 기반 실시간 시세 브로드캐스트, GBM 시뮬레이션으로 장외 시간 시세 유지</li>
@@ -700,6 +740,10 @@ description: "Java · Spring Boot · React · AI로 서비스를 설계하고 �
       <h3 class="project-title">Churn Guard AI</h3>
       <a href="https://github.com/teriyakki-jin/Churn-Guard-AI" target="_blank" class="project-link">GitHub →</a>
     </div>
+    <a class="project-media project-media-diagram" href="{{ site.baseurl }}/images/projects/churn-guard-ai.webp" target="_blank" rel="noopener" aria-label="Churn Guard AI 시스템 구성도 원본 보기">
+      <img src="{{ site.baseurl }}/images/projects/churn-guard-ai.webp" width="1024" height="559" loading="lazy" decoding="async" alt="React 프론트엔드, FastAPI 예측·시뮬레이션·A/B 테스트와 데이터베이스로 구성된 Churn Guard AI 아키텍처">
+      <span class="project-media-caption"><span>Architecture · Prediction + A/B Testing</span><strong>구성도 확대 ↗</strong></span>
+    </a>
     <p class="project-desc">통신사 고객 이탈 위험을 예측하고 맞춤형 유지 전략을 제안하는 ML 웹 애플리케이션</p>
     <ul class="project-features">
       <li>XGBoost · RandomForest · GradientBoosting 앙상블로 이탈 확률 실시간 예측</li>
