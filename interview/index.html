@@ -1,0 +1,126 @@
+---
+layout: default
+title: 효성중공업 SW·CS 기술면접 학습실
+description: "정보보호·스마트팩토리 직무를 위한 네트워크, 운영체제, 데이터베이스, 보안, Java/Spring, 알고리즘, AI 기술면접 학습 페이지"
+permalink: /interview/
+---
+
+<link rel="stylesheet" href="{{ '/interview/style.css' | relative_url }}">
+
+<main class="iv-page" id="iv-app">
+  <section class="iv-hero" aria-labelledby="iv-title">
+    <div class="iv-hero-glow iv-hero-glow-a" aria-hidden="true"></div>
+    <div class="iv-hero-glow iv-hero-glow-b" aria-hidden="true"></div>
+    <div class="iv-eyebrow"><span></span> HYOSUNG HEAVY INDUSTRIES · INTERVIEW LAB</div>
+    <h1 id="iv-title">원리에서 경험까지,<br><em>말할 수 있는 CS</em></h1>
+    <p>정보보호와 스마트팩토리 면접을 함께 준비하는 실전형 학습실입니다. 개념을 읽고, 30~60초 답변으로 소리 내어 말한 뒤, 꼬리질문과 퀴즈로 빈틈을 확인하세요.</p>
+    <div class="iv-hero-actions">
+      <a class="iv-primary" href="#study">학습 시작하기 <span>↓</span></a>
+      <button class="iv-secondary" id="random-question" type="button">랜덤 질문</button>
+    </div>
+    <div class="iv-stats" aria-label="학습 현황">
+      <div><strong id="topic-count">34</strong><span>핵심 문항</span></div>
+      <div><strong>8</strong><span>학습 영역</span></div>
+      <div><strong id="done-count">0</strong><span>학습 완료</span></div>
+      <div><strong id="progress-rate">0%</strong><span>진행률</span></div>
+    </div>
+  </section>
+
+  <section class="iv-guide" aria-labelledby="guide-title">
+    <div>
+      <p class="iv-section-label">HOW TO USE</p>
+      <h2 id="guide-title">한 문항을 내 것으로 만드는 4단계</h2>
+    </div>
+    <ol>
+      <li><b>01</b><span><strong>원리 이해</strong>도식의 흐름을 손으로 따라갑니다.</span></li>
+      <li><b>02</b><span><strong>답변 말하기</strong>핵심→이유→경험 순서로 말합니다.</span></li>
+      <li><b>03</b><span><strong>압박 대비</strong>꼬리질문에 한 문장씩 답합니다.</span></li>
+      <li><b>04</b><span><strong>회상 확인</strong>퀴즈를 풀고 완료 체크합니다.</span></li>
+    </ol>
+  </section>
+
+  <section class="iv-experience" aria-labelledby="experience-title">
+    <div class="iv-section-heading">
+      <div>
+        <p class="iv-section-label">YOUR EVIDENCE</p>
+        <h2 id="experience-title">경험은 주장보다 강합니다</h2>
+      </div>
+      <p>아래 경험은 개념을 “알고 있다”에서 “써봤다”로 바꾸는 근거입니다. 페이지 안의 <mark>경험 연결</mark>에서 적절한 사례를 확인하세요.</p>
+    </div>
+    <div class="iv-experience-grid">
+      <article><span>FIELD</span><h3>K-water · SCADA/NAC</h3><p>망·접근제어·장애 진단 질문에서 관측 → 가설 → 검증 → 복구의 순서로 연결</p></article>
+      <article><span>OPS</span><h3>해군 망 운영</h3><p>가용성, 변경 통제, 최소 권한, 장애 시 커뮤니케이션의 실무 관점으로 연결</p></article>
+      <article><span>NETWORK</span><h3>TelcoNet Sentinel</h3><p>OSPF/BFD 장애 탐지 비교와 경로 전환 계측을 라우팅·복원력 질문에 연결</p></article>
+      <article><span>BUILD</span><h3>AI · Blockchain · Security</h3><p>제조 납기 예측, NodeConnection, ConsentLedger, Agent Runtime Security Lab을 설계 선택의 근거로 연결</p></article>
+    </div>
+    <p class="iv-fact-note">경험 연결 문구는 제공된 이력과 공개 포트폴리오 범위만 사용했습니다. 수치·역할·성과는 실제 본인 기여와 일치하는 경우에만 답변에 포함하세요.</p>
+  </section>
+
+  <section class="iv-study" id="study" aria-labelledby="study-title">
+    <div class="iv-section-heading">
+      <div>
+        <p class="iv-section-label">CORE QUESTIONS</p>
+        <h2 id="study-title">기술면접 핵심 문항</h2>
+      </div>
+      <p id="result-summary" aria-live="polite">전체 34개 문항</p>
+    </div>
+
+    <div class="iv-toolbar" role="search">
+      <label class="iv-search">
+        <span aria-hidden="true">⌕</span>
+        <span class="sr-only">문항 검색</span>
+        <input id="question-search" type="search" placeholder="예: TCP, 데드락, OAuth, JVM, 납기 예측" autocomplete="off">
+        <kbd>/</kbd>
+      </label>
+      <button id="reset-progress" class="iv-reset" type="button">체크 초기화</button>
+    </div>
+
+    <div class="iv-categories" id="category-filters" aria-label="카테고리 필터"></div>
+    <div class="iv-question-list" id="question-list"></div>
+    <div class="iv-empty" id="empty-state" hidden>
+      <strong>일치하는 문항이 없습니다.</strong>
+      <span>검색어를 줄이거나 다른 카테고리를 선택해 보세요.</span>
+    </div>
+  </section>
+
+  <section class="iv-route" aria-labelledby="route-title">
+    <div>
+      <p class="iv-section-label">INTERVIEW ROUTE</p>
+      <h2 id="route-title">직무별 마지막 점검</h2>
+    </div>
+    <div class="iv-route-grid">
+      <article>
+        <span>01 · 정보보호</span>
+        <h3>경계보다 검증</h3>
+        <p>NAC·접근통제·OAuth·웹 공격을 “누가, 어떤 단말로, 무엇을, 왜 허용받는가”라는 하나의 프레임으로 설명하세요.</p>
+        <button type="button" data-route="security">보안 문항만 보기 →</button>
+      </article>
+      <article>
+        <span>02 · 스마트팩토리</span>
+        <h3>정확도보다 운영</h3>
+        <p>예측 성능뿐 아니라 데이터 누수, 지연, 드리프트, 오탐 비용, 사람의 최종 판단까지 생산 시스템 관점에서 답하세요.</p>
+        <button type="button" data-route="ai">AI·스마트팩토리만 보기 →</button>
+      </article>
+      <article>
+        <span>03 · 공통</span>
+        <h3>구조적으로 말하기</h3>
+        <p>정의 → 동작 원리 → 선택 기준 → 경험의 네 문장만 지켜도 답변이 흔들리지 않습니다.</p>
+        <button type="button" data-route="all">전체 문항 보기 →</button>
+      </article>
+    </div>
+  </section>
+
+  <section class="iv-sources" aria-labelledby="sources-title">
+    <p class="iv-section-label">REFERENCES</p>
+    <h2 id="sources-title">참고 자료와 작성 원칙</h2>
+    <p>아래 공개 학습 자료의 목차와 주제를 참고하되, 설명·예시·답변·퀴즈는 이 페이지의 면접 목적에 맞게 새로 작성했습니다. 원문을 대량 복제하지 않았으며, 구현·버전·환경에 따라 달라지는 내용은 절대 명제로 표현하지 않았습니다.</p>
+    <div class="iv-source-links">
+      <a href="https://github.com/gyoogle/tech-interview-for-developer" target="_blank" rel="noopener"><b>01</b><span>gyoogle<br><small>tech-interview-for-developer</small></span><i>↗</i></a>
+      <a href="https://github.com/WeareSoft/tech-interview/tree/master/contents" target="_blank" rel="noopener"><b>02</b><span>WeareSoft<br><small>tech-interview contents</small></span><i>↗</i></a>
+    </div>
+  </section>
+</main>
+
+<noscript><p class="iv-noscript">문항 검색과 학습 체크 기능을 사용하려면 브라우저에서 JavaScript를 활성화해 주세요.</p></noscript>
+<script src="{{ '/interview/app.js' | relative_url }}" defer></script>
+
