@@ -482,7 +482,7 @@
   }
 
   document.addEventListener('click', function (event) {
-    var filter = event.target.closest('[data-category]');
+    var filter = event.target.closest('.iv-filter[data-category]');
     if (filter) { setCategory(filter.dataset.category, false); return; }
 
     var route = event.target.closest('[data-route]');
